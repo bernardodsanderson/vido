@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright 2017 Bernardo Anderson <bernardo@anderson.plus> -->
+<component type="desktop">
+  <id>com.github.bernardodsanderson.vido.desktop</id>
+  <metadata_license>CC0</metadata_license>
+  <name>VIDO</name>
+  <summary>Video Downloader</summary>
+  <description>
+    <p>Download online videos from various sources including youtube, vimeo and much more!</p>
+  </description>
+  <custom>
+     <value key="x-appcenter-color-primary">#603461</value>
+     <value key="x-appcenter-color-primary-text">rgb(255, 255, 255)</value>
+     <value key="x-appcenter-suggested-price">1</value>
+  </custom>
+  <provides>
+    <binary>com.github.bernardodsanderson.vido</binary>
+  </provides>
+  <screenshots>
+    <screenshot type="default">
+      <image>https://raw.githubusercontent.com/danrabbit/nimbus/master/data/screenshot.png</image>
+    </screenshot>
+  </screenshots>
+  <developer_name>Daniel Foré</developer_name>
+  <url type="homepage">http://danielfore.com</url>
+  <url type="bugtracker">https://github.com/danrabbit/nimbus/issues</url>
+</component>
