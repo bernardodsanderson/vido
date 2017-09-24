@@ -9,3 +9,4 @@ Icon=com.github.bernardodsanderson.vido
 Terminal=false
 Type=Application
 Keywords=Video;Download;Youtube;Internet;
+X-GNOME-UsesNotifications=true
