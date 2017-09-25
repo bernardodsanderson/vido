@@ -1,6 +1,6 @@
 using Gtk;
-
 Window window;
+string folder_location;
 
 int main(string[] args) {
   init(ref args);
@@ -38,6 +38,7 @@ int main(string[] args) {
   var location_button = new Button.with_label("Select Folder to Save");
   location_button.clicked.connect (() => {
     on_open_clicked();
+    location_button.label = folder_location;
   });
   grid.attach (location_button, 0, 1, 35, 1);
 
@@ -50,20 +51,21 @@ int main(string[] args) {
   });
   grid.attach (info_button, 0, 2, 35, 1);
 
-  // Download button
-  var download = new Button.with_label("Download");
-  download.clicked.connect (() => {
+  // download_button button
+  var download_button = new Button.with_label("Download");
+  download_button.get_style_context().add_class(Gtk.STYLE_CLASS_SUGGESTED_ACTION);
+  download_button.clicked.connect (() => {
     string str = url_input.get_text();
-    download.label = str;
-    download.set_sensitive (false);
+    download_button.label = str;
+    download_button.set_sensitive (false);
     // var notification = new Notification (_("Hello World"));
     // notification.set_body (_("This is my first notification!"));
     // this.send_notification ("notify.app", notification);
     // var image = new Gtk.Image.from_icon_name ("dialog-warning", Gtk.IconSize.DIALOG);
     // notification.set_icon (image.gicon);
   });
-  download.margin_top = 10;
-  grid.attach (download, 0, 3, 35, 10);
+  download_button.margin_top = 10;
+  grid.attach (download_button, 0, 3, 35, 10);
 
   // Add to window
   window.add(grid);
@@ -81,6 +83,7 @@ void on_open_clicked () {
     "_Cancel", ResponseType.CANCEL,
     "_Open", ResponseType.ACCEPT);
   if (file_chooser.run () == ResponseType.ACCEPT) {
+    folder_location = file_chooser.get_filename ();
     stderr.printf ("Folder Selected: %s\n", file_chooser.get_filename ());
   }
   file_chooser.destroy ();
