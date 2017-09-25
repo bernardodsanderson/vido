@@ -1,41 +1,69 @@
+using Gtk;
+
+Window window;
+
 int main(string[] args) {
-  Gtk.init(ref args);
+  init(ref args);
 
   // Header
-  var header = new Gtk.HeaderBar();
+  var header = new HeaderBar();
   header.set_show_close_button(true);
   header.set_title("VIDO - Video Downloader");
   
   // Window
-  var window = new Gtk.Window();
+  var window = new Window();
   window.set_border_width(15);
-  window.set_default_size(600, 600);
+  // window.set_default_size(600, 800);
+  window.resizable = false;
   window.set_titlebar(header);
   window.destroy.connect(Gtk.main_quit);
 
   // Grid
-  var grid = new Gtk.Grid();
+  var grid = new Grid();
   // grid.orientation = Gtk.Orientation.VERTICAL;
   grid.row_spacing = 6;
   grid.column_spacing = 6;
   
   // URL label
-  var url_label = new Gtk.Label("Enter Url: ");
+  var url_label = new Label("Enter Url: ");
   grid.attach(url_label, 0, 0, 1, 1);
   // layout.attach_next_to (hello_label, hello_button, Gtk.PositionType.RIGHT, 1, 1);
 
+  // URL input
+  var url_input = new Entry();
+  // url_input.set_text("https://youtube.com/ID");
+  grid.attach_next_to(url_input, url_label, PositionType.RIGHT, 2, 1);
+
+  // Save location button
+  var location_button = new Button.with_label("Select Folder to Save");
+  location_button.clicked.connect (() => {
+    on_open_clicked();
+  });
+  grid.attach (location_button, 0, 1, 35, 1);
+
   // Get info button
-  var info_button = new Gtk.Button.with_label("Get Video Info");
+  var info_button = new Button.with_label("Get Video Info");
   info_button.clicked.connect (() => {
-    info_button.label = "Hello World!";
+    string str = url_input.get_text();
+    info_button.label = str;
     info_button.set_sensitive (false);
+  });
+  grid.attach (info_button, 0, 2, 35, 1);
+
+  // Download button
+  var download = new Button.with_label("Download");
+  download.clicked.connect (() => {
+    string str = url_input.get_text();
+    download.label = str;
+    download.set_sensitive (false);
     // var notification = new Notification (_("Hello World"));
     // notification.set_body (_("This is my first notification!"));
     // this.send_notification ("notify.app", notification);
     // var image = new Gtk.Image.from_icon_name ("dialog-warning", Gtk.IconSize.DIALOG);
     // notification.set_icon (image.gicon);
   });
-  grid.attach (info_button, 2, 0, 1, 1);
+  download.margin_top = 10;
+  grid.attach (download, 0, 3, 35, 10);
 
   // Add to window
   window.add(grid);
@@ -43,4 +71,17 @@ int main(string[] args) {
   
   Gtk.main();
   return 0;
+}
+
+void on_open_clicked () {
+  var file_chooser = new FileChooserDialog (
+    "Open Folder",
+    window,
+    FileChooserAction.SELECT_FOLDER,
+    "_Cancel", ResponseType.CANCEL,
+    "_Open", ResponseType.ACCEPT);
+  if (file_chooser.run () == ResponseType.ACCEPT) {
+    stderr.printf ("Folder Selected: %s\n", file_chooser.get_filename ());
+  }
+  file_chooser.destroy ();
 }
