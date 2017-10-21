@@ -5,54 +5,76 @@ string folder_location;
 int main(string[] args) {
   init(ref args);
 
-  // Header
+  // Global Vars
+  var css_provider = new Gtk.CssProvider();
+  var download_button = new Button.with_label("Download");
   var header = new HeaderBar();
+  var window = new Window();
+  var url_input = new Entry();
+  var location_button = new Button.with_label("Select Folder to Save");
+  var video_label = new Label("");
+  var info_button = new Button.with_label("Get Video Info");
+  // Grid
+  var grid = new Grid();
+
+  // Add CSS file
+  try {
+    css_provider.load_from_path("style.css");
+  } catch (GLib.Error e) {
+    warning ("%s", e.message);
+  }
+  Gtk.StyleContext.add_provider_for_screen(Gdk.Screen.get_default(), css_provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
+
+  // Header
   header.set_show_close_button(true);
   header.set_title("VIDO - Video Downloader");
   
   // Window
-  var window = new Window();
   window.set_border_width(15);
   // window.set_default_size(600, 800);
   window.resizable = false;
   window.set_titlebar(header);
   window.destroy.connect(Gtk.main_quit);
 
-  // Grid
-  var grid = new Grid();
   // grid.orientation = Gtk.Orientation.VERTICAL;
   grid.row_spacing = 6;
   grid.column_spacing = 6;
-  
-  // URL label
-  var url_label = new Label("Enter Url: ");
-  grid.attach(url_label, 0, 0, 1, 1);
-  // layout.attach_next_to (hello_label, hello_button, Gtk.PositionType.RIGHT, 1, 1);
 
   // URL input
-  var url_input = new Entry();
+  url_input.get_style_context().add_class("input");
+  url_input.set_placeholder_text("Enter url...");
   // url_input.set_text("https://youtube.com/ID");
-  grid.attach_next_to(url_input, url_label, PositionType.RIGHT, 2, 1);
+  grid.attach (url_input, 0, 0, 75, 1);
 
   // Save location button
-  var location_button = new Button.with_label("Select Folder to Save");
   location_button.clicked.connect (() => {
     on_open_clicked();
     location_button.label = folder_location;
   });
-  grid.attach (location_button, 0, 1, 35, 1);
+  grid.attach (location_button, 0, 1, 75, 1);
+
+  // Video Label
+  url_input.get_style_context().add_class("videolabel");
+  grid.attach (video_label, 0, 3, 75, 1);
 
   // Get info button
-  var info_button = new Button.with_label("Get Video Info");
   info_button.clicked.connect (() => {
-    string str = url_input.get_text();
+    string str = "Info Loaded...";
     info_button.label = str;
-    info_button.set_sensitive (false);
+    try {
+      string standard_output, standard_error;
+      int exit_status;
+      Process.spawn_command_line_sync("youtube-dl -e --get-duration --get-format " + url_input.get_text(), out standard_output, out standard_error, out exit_status);
+      video_label.label = standard_output;
+      stderr.printf("%s\n", standard_output);
+    } catch (SpawnError e) {
+      stderr.printf("%s\n", e.message);
+    }
+    // info_button.set_sensitive (false);
   });
-  grid.attach (info_button, 0, 2, 35, 1);
+  grid.attach (info_button, 0, 2, 75, 1);
 
   // download_button button
-  var download_button = new Button.with_label("Download");
   download_button.get_style_context().add_class(Gtk.STYLE_CLASS_SUGGESTED_ACTION);
   download_button.clicked.connect (() => {
     string str = url_input.get_text();
@@ -63,9 +85,18 @@ int main(string[] args) {
     // this.send_notification ("notify.app", notification);
     // var image = new Gtk.Image.from_icon_name ("dialog-warning", Gtk.IconSize.DIALOG);
     // notification.set_icon (image.gicon);
+    try {
+      string standard_output, standard_error;
+      int exit_status;
+      Process.spawn_command_line_sync("youtube-dl --get-title " + url_input.get_text(), out standard_output, out standard_error, out exit_status);
+      Process.spawn_command_line_sync("youtube-dl -o '" + folder_location + "/" + standard_output + "' '" + url_input.get_text() + "'");
+    } catch (SpawnError e) {
+      stderr.printf("%s\n", e.message);
+    }
+    download_button.label = "Done!";
   });
-  download_button.margin_top = 10;
-  grid.attach (download_button, 0, 3, 35, 10);
+  download_button.margin_top = 20;
+  grid.attach (download_button, 0, 8, 75, 12);
 
   // Add to window
   window.add(grid);
