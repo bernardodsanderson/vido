@@ -1,9 +1,16 @@
 .input {
 	padding: 10px;
+	padding-right: 5px;
 	font-size: 12px;
+	font-weight: bold;
 }
 
 .videolabel {
-	font-size: 12px;
+	font-size: 10px;
+	color: #aaa;
+}
+
+.downloadbutton {
+	font-size: 14px;
 	font-weight: bold;
 }

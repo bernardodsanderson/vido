@@ -14,6 +14,10 @@ int main(string[] args) {
   var location_button = new Button.with_label("Select Folder to Save");
   var video_label = new Label("");
   var info_button = new Button.with_label("Get Video Info");
+  var audio_only = new CheckButton.with_label ("Audio Only");
+  var with_subtitles = new CheckButton.with_label ("Add Subtitles");
+  bool audio = false;
+  bool subtitles = false;
   // Grid
   var grid = new Grid();
 
@@ -43,6 +47,19 @@ int main(string[] args) {
   // URL input
   url_input.get_style_context().add_class("input");
   url_input.set_placeholder_text("Enter url...");
+  // Add a delete-button:
+  url_input.set_icon_from_icon_name (Gtk.EntryIconPosition.SECONDARY, "edit-clear");
+  url_input.set_input_purpose(Gtk.InputPurpose.URL);
+  url_input.icon_press.connect ((pos, event) => {
+    if (pos == Gtk.EntryIconPosition.SECONDARY) {
+      info_button.label = "Get Video Info";
+      video_label.label = "";
+      url_input.set_text ("");
+      download_button.label = "Download";
+      with_subtitles.active = false;
+      audio_only.active = false;
+    }
+  });
   // url_input.set_text("https://youtube.com/ID");
   grid.attach (url_input, 0, 0, 75, 1);
 
@@ -50,11 +67,39 @@ int main(string[] args) {
   location_button.clicked.connect (() => {
     on_open_clicked();
     location_button.label = folder_location;
+    if (folder_location.length > 0) { //&& url_input.get_text() != ""
+      download_button.set_sensitive (true);
+    }
   });
   grid.attach (location_button, 0, 1, 75, 1);
 
+  // Audio Only
+  audio_only.toggled.connect (() => {
+    // Emitted when the audio_only has been clicked:
+    if (audio_only.active) {
+      with_subtitles.active = false;
+      audio = true;
+    } else {
+      audio = false;
+    }
+  });
+  grid.attach (audio_only, 0, 7, 20, 1);
+
+  // With Subtitles
+  with_subtitles.toggled.connect (() => {
+    // Emitted when the with_subtitles has been clicked:
+    if (with_subtitles.active) {
+      audio_only.active = false;
+      subtitles = true;
+    } else {
+      subtitles = false;
+    }
+  });
+  grid.attach_next_to (with_subtitles, audio_only, Gtk.PositionType.RIGHT, 2, 1);
+
   // Video Label
-  url_input.get_style_context().add_class("videolabel");
+  video_label.get_style_context().add_class("videolabel");
+  video_label.margin_top = 10;
   grid.attach (video_label, 0, 3, 75, 1);
 
   // Get info button
@@ -76,6 +121,8 @@ int main(string[] args) {
 
   // download_button button
   download_button.get_style_context().add_class(Gtk.STYLE_CLASS_SUGGESTED_ACTION);
+  download_button.get_style_context().add_class("downloadbutton");
+  download_button.set_sensitive (false);
   download_button.clicked.connect (() => {
     string str = url_input.get_text();
     download_button.label = str;
@@ -86,19 +133,25 @@ int main(string[] args) {
     // var image = new Gtk.Image.from_icon_name ("dialog-warning", Gtk.IconSize.DIALOG);
     // notification.set_icon (image.gicon);
     try {
-      string standard_output, standard_error;
-      int exit_status;
-      Process.spawn_command_line_sync("youtube-dl --get-title " + url_input.get_text(), out standard_output, out standard_error, out exit_status);
-      Process.spawn_command_line_sync("youtube-dl -o '" + folder_location + "/" + standard_output + "' '" + url_input.get_text() + "'");
+      if (audio) { // --extract-audio
+        Process.spawn_command_line_async("youtube-dl --extract-audio -o '" + folder_location + "/%(title)s.%(ext)s" + "' '" + url_input.get_text() + "'");
+      } else if (subtitles) {
+        Process.spawn_command_line_async("youtube-dl --all-subs -o '" + folder_location + "/%(title)s.%(ext)s" + "' '" + url_input.get_text() + "'");
+      } else {
+        Process.spawn_command_line_async("youtube-dl -o '" + folder_location + "/%(title)s.%(ext)s" + "' '" + url_input.get_text() + "'");
+      }
     } catch (SpawnError e) {
       stderr.printf("%s\n", e.message);
+    } finally {
+      download_button.label = "Downloading...";
+      download_button.set_sensitive (true);
     }
-    download_button.label = "Done!";
   });
-  download_button.margin_top = 20;
+  download_button.margin_top = 10;
   grid.attach (download_button, 0, 8, 75, 12);
 
   // Add to window
+  location_button.grab_focus();
   window.add(grid);
   window.show_all();
   
