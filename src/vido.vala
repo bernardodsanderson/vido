@@ -124,27 +124,44 @@ int main(string[] args) {
   download_button.get_style_context().add_class("downloadbutton");
   download_button.set_sensitive (false);
   download_button.clicked.connect (() => {
-    string str = url_input.get_text();
-    download_button.label = str;
+    download_button.label = "Downloading...";
     download_button.set_sensitive (false);
     // var notification = new Notification (_("Hello World"));
     // notification.set_body (_("This is my first notification!"));
     // this.send_notification ("notify.app", notification);
     // var image = new Gtk.Image.from_icon_name ("dialog-warning", Gtk.IconSize.DIALOG);
     // notification.set_icon (image.gicon);
+    string[] spawn_args;
+    if (audio) { // --extract-audio
+      spawn_args = {"youtube-dl", "--no-warnings", "--extract-audio", url_input.get_text()};
+    } else if (subtitles) {
+      spawn_args = {"youtube-dl", "--no-warnings", "--all-subs", url_input.get_text()};
+    } else {
+      spawn_args = {"youtube-dl", "--no-warnings", url_input.get_text()};
+    }
+    MainLoop loop = new MainLoop ();
     try {
-      if (audio) { // --extract-audio
-        Process.spawn_command_line_async("youtube-dl --extract-audio -o '" + folder_location + "/%(title)s.%(ext)s" + "' '" + url_input.get_text() + "'");
-      } else if (subtitles) {
-        Process.spawn_command_line_async("youtube-dl --all-subs -o '" + folder_location + "/%(title)s.%(ext)s" + "' '" + url_input.get_text() + "'");
-      } else {
-        Process.spawn_command_line_async("youtube-dl -o '" + folder_location + "/%(title)s.%(ext)s" + "' '" + url_input.get_text() + "'");
-      }
+      string[] spawn_env = Environ.get ();
+      Pid child_pid;
+
+      Process.spawn_async (folder_location,
+        spawn_args,
+        spawn_env,
+        SpawnFlags.SEARCH_PATH | SpawnFlags.DO_NOT_REAP_CHILD,
+        null,
+        out child_pid);
+
+      ChildWatch.add (child_pid, (pid, status) => {
+        // Triggered when the child indicated by child_pid exits
+        download_button.label = "Finished!";
+        download_button.set_sensitive (true);
+        Process.close_pid (pid);
+        loop.quit ();
+      });
+
+      loop.run ();
     } catch (SpawnError e) {
-      stderr.printf("%s\n", e.message);
-    } finally {
-      download_button.label = "Downloading...";
-      download_button.set_sensitive (true);
+      stdout.printf ("Error: %s\n", e.message);
     }
   });
   download_button.margin_top = 10;
