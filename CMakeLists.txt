@@ -12,7 +12,7 @@ list (APPEND CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake/src)
 set (DATADIR "${CMAKE_INSTALL_PREFIX}/share")
 
 # what to call that directory where we install data too
-set (PKGDATADIR "${DATADIR}/com.github.yourusername.yourrepositoryname")
+set (PKGDATADIR "${DATADIR}/com.github.bernardodsanderson.vido")
 
 set (EXEC_NAME "com.github.bernardodsanderson.vido")
 set (RELEASE_NAME "VIDO")
@@ -28,6 +28,12 @@ pkg_check_modules(DEPS REQUIRED gtk+-3.0)
 add_definitions(${DEPS_CFLAGS})
 link_libraries(${DEPS_LIBRARIES})
 link_directories(${DEPS_LIBRARY_DIRS})
+
+# Find youtube-dl
+find_program(YOUTUBE_DL youtube-dl)
+if(NOT YOUTUBE_DL)
+  message(FATAL_ERROR "youtube-dl is required")
+endif()
 
 # make sure we have vala
 find_package(Vala REQUIRED)
@@ -53,7 +59,7 @@ add_executable(${EXEC_NAME} ${VALA_C})
 install (TARGETS ${EXEC_NAME} RUNTIME DESTINATION bin)
 
 # install our .desktop file so the Applications menu will see it
-install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/com.github.yourusername.yourrepositoryname.desktop DESTINATION ${DATADIR}/applications/)
+install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/com.github.bernardodsanderson.vido.desktop DESTINATION ${DATADIR}/applications/)
 
 # install our .appdata.xml file so AppCenter will see it
-install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/com.github.yourusername.yourrepositoryname.appdata.xml DESTINATION ${DATADIR}/metainfo/)
+install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/com.github.bernardodsanderson.vido.appdata.xml DESTINATION ${DATADIR}/metainfo/)

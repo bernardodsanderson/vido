@@ -11,6 +11,8 @@ int main(string[] args) {
   var header = new HeaderBar();
   var window = new Window();
   var url_input = new Entry();
+  bool has_input = false;
+  bool has_location = false;
   var location_button = new Button.with_label("Select Folder to Save");
   var video_label = new Label("");
   var info_button = new Button.with_label("Get Video Info");
@@ -47,6 +49,16 @@ int main(string[] args) {
   // URL input
   url_input.get_style_context().add_class("input");
   url_input.set_placeholder_text("Enter url...");
+  stdout.printf("url_input_text");
+  url_input.changed.connect (() => {
+    string url_input_text = url_input.text;
+    if (url_input_text.length > 1) {
+      if (has_location) {
+        download_button.set_sensitive (true);
+      }
+      has_input = true;
+    }
+  });
   // Add a delete-button:
   url_input.set_icon_from_icon_name (Gtk.EntryIconPosition.SECONDARY, "edit-clear");
   url_input.set_input_purpose(Gtk.InputPurpose.URL);
@@ -57,6 +69,7 @@ int main(string[] args) {
       url_input.set_text ("");
       download_button.label = "Download";
       with_subtitles.active = false;
+      download_button.set_sensitive (false);
       audio_only.active = false;
     }
   });
@@ -68,7 +81,10 @@ int main(string[] args) {
     on_open_clicked();
     location_button.label = folder_location;
     if (folder_location.length > 0) { //&& url_input.get_text() != ""
-      download_button.set_sensitive (true);
+      has_location = true;
+      if (has_input) {
+        download_button.set_sensitive (true);
+      }
     }
   });
   grid.attach (location_button, 0, 1, 75, 1);

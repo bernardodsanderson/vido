@@ -18,10 +18,11 @@
   </provides>
   <screenshots>
     <screenshot type="default">
-      <image>https://raw.githubusercontent.com/danrabbit/nimbus/master/data/screenshot.png</image>
+      <caption>Normal Mode</caption>
+      <image>https://raw.githubusercontent.com/lainsce/quilter/master/data/images/shot.png</image>
     </screenshot>
   </screenshots>
-  <developer_name>Daniel Foré</developer_name>
+  <developer_name>Bernardo Anderson</developer_name>
   <url type="homepage">http://github.com/bernardodsanderson/vido</url>
   <url type="bugtracker">https://github.com/bernardodsanderson/vido/issues</url>
 </component>
