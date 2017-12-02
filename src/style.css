@@ -1,16 +1,16 @@
-.input {
+url_input, .inputurl {
 	padding: 10px;
 	padding-right: 5px;
 	font-size: 12px;
 	font-weight: bold;
 }
 
-.videolabel {
+video_label, .videolabel {
 	font-size: 10px;
 	color: #aaa;
 }
 
-.downloadbutton {
+download_button, .downloadbutton {
 	font-size: 14px;
 	font-weight: bold;
 }

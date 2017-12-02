@@ -25,11 +25,11 @@ int main(string[] args) {
 
   // Add CSS file
   try {
-    css_provider.load_from_path("style.css");
+    css_provider.load_from_path(Constants.PKGDATADIR + "/style.css");
   } catch (GLib.Error e) {
-    warning ("%s", e.message);
+    stderr.printf("%s", e.message);
   }
-  Gtk.StyleContext.add_provider_for_screen(Gdk.Screen.get_default(), css_provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
+  Gtk.StyleContext.add_provider_for_screen(Gdk.Screen.get_default(), css_provider, Gtk.STYLE_PROVIDER_PRIORITY_USER);
 
   // Header
   header.set_show_close_button(true);
@@ -47,9 +47,8 @@ int main(string[] args) {
   grid.column_spacing = 6;
 
   // URL input
-  url_input.get_style_context().add_class("input");
+  url_input.get_style_context().add_class("inputurl");
   url_input.set_placeholder_text("Enter url...");
-  stdout.printf("url_input_text");
   url_input.changed.connect (() => {
     string url_input_text = url_input.text;
     if (url_input_text.length > 1) {

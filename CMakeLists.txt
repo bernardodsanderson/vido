@@ -19,6 +19,7 @@ set (RELEASE_NAME "VIDO")
 set (VERSION "0.1")
 set (VERSION_INFO "Alpha")
 
+configure_file (${CMAKE_SOURCE_DIR}/src/config.vala.cmake ${CMAKE_SOURCE_DIR}/src/config.vala)
 # we're about to use pkgconfig to make sure dependencies are installed so let's find pkgconfig first
 find_package(PkgConfig)
 
@@ -29,7 +30,7 @@ add_definitions(${DEPS_CFLAGS})
 link_libraries(${DEPS_LIBRARIES})
 link_directories(${DEPS_LIBRARY_DIRS})
 
-# Find youtube-dl
+# Find youtube-dl command line program
 find_program(YOUTUBE_DL youtube-dl)
 if(NOT YOUTUBE_DL)
   message(FATAL_ERROR "youtube-dl is required")
@@ -46,6 +47,7 @@ ensure_vala_version("0.16" MINIMUM)
 include(ValaPrecompile)
 vala_precompile(VALA_C ${EXEC_NAME}
     src/vido.vala
+    src/config.vala
 
 # tell what libraries to use when compiling
 PACKAGES
@@ -63,3 +65,25 @@ install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/com.github.bernardodsanderson.vi
 
 # install our .appdata.xml file so AppCenter will see it
 install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/com.github.bernardodsanderson.vido.appdata.xml DESTINATION ${DATADIR}/metainfo/)
+
+# install icons
+install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/icons/16/com.github.bernardodsanderson.vido.svg
+        DESTINATION share/icons/hicolor/16x16/apps/)
+
+install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/icons/24/com.github.bernardodsanderson.vido.svg
+        DESTINATION share/icons/hicolor/24x24/apps/)
+
+install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/icons/32/com.github.bernardodsanderson.vido.svg
+        DESTINATION share/icons/hicolor/32x32/apps/)
+
+install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/icons/48/com.github.bernardodsanderson.vido.svg
+        DESTINATION share/icons/hicolor/48x48/apps/)
+
+install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/icons/64/com.github.bernardodsanderson.vido.svg
+        DESTINATION share/icons/hicolor/64x64/apps/)
+
+install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/icons/128/com.github.bernardodsanderson.vido.svg
+        DESTINATION share/icons/hicolor/128x128/apps/)
+
+# install css
+INSTALL(FILES src/style.css DESTINATION ${PKGDATADIR})

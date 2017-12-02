@@ -9,7 +9,7 @@
     <p>Download online videos from various sources including youtube, vimeo and much more!</p>
   </description>
   <custom>
-     <value key="x-appcenter-color-primary">#603461</value>
+     <value key="x-appcenter-color-primary">#F2C94C</value>
      <value key="x-appcenter-color-primary-text">rgb(255, 255, 255)</value>
      <value key="x-appcenter-suggested-price">1</value>
   </custom>
@@ -19,6 +19,10 @@
   <screenshots>
     <screenshot type="default">
       <caption>Normal Mode</caption>
+      <image>https://raw.githubusercontent.com/lainsce/quilter/master/data/images/shot.png</image>
+    </screenshot>
+    <screenshot>
+      <caption>Ready to Download</caption>
       <image>https://raw.githubusercontent.com/lainsce/quilter/master/data/images/shot.png</image>
     </screenshot>
   </screenshots>
