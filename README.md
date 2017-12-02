@@ -1,2 +1,17 @@
 # VIDO
-** A GTK3 Video Downloader **
+**A GTK3 Video Downloader**
+
+Download online videos from various sources including youtube, vimeo and much more!
+
+![Screenshot](https://raw.githubusercontent.com/bernardodsanderson/vido/master/data/images/VIDO-normal.png)
+
+## Dependencies
+
+Please make sure you have these dependencies first before building.
+
+```
+granite
+gtk+-3.0
+glib-2.0
+youtube-dl
+```
