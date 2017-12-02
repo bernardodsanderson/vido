@@ -1,4 +1,4 @@
-Source: vido
+Source: com.github.bernardodsanderson.vido
 Section: x11
 Priority: extra
 Maintainer: Bernardo Anderson <bernardo@anderson.plus>
@@ -8,7 +8,7 @@ Build-Depends: cmake (>= 2.8),
                valac (>= 0.16)
 Standards-Version: 3.9.3
 
-Package: vido
+Package: com.github.bernardodsanderson.vido
 Architecture: any
 Depends: ${misc:Depends}, ${shlibs:Depends}
 Description: Hey young world
