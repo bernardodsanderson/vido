@@ -33,7 +33,7 @@ link_directories(${DEPS_LIBRARY_DIRS})
 # Find youtube-dl command line program
 find_program(YOUTUBE_DL youtube-dl)
 if(NOT YOUTUBE_DL)
-  message(FATAL_ERROR "youtube-dl is required")
+  # message(FATAL_ERROR "youtube-dl is required")
 endif()
 
 # make sure we have vala

@@ -8,5 +8,5 @@ Exec=com.github.bernardodsanderson.vido
 Icon=com.github.bernardodsanderson.vido.svg
 Terminal=false
 Type=Application
-Keywords=Video;Download;Youtube;Internet;
+Keywords=Video;Download;Internet;
 X-GNOME-UsesNotifications=true

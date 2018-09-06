@@ -1,7 +1,7 @@
 # VIDO
 **A GTK3 Video Downloader**
 
-Download online videos from various sources including youtube, vimeo and much more!
+Download online videos from various sources including archive.org and much more!
 
 ![Screenshot](https://raw.githubusercontent.com/bernardodsanderson/vido/master/data/images/VIDO-normal.png)
 

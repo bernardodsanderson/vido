@@ -6,7 +6,7 @@
   <name>VIDO</name>
   <summary>Online Video Downloader</summary>
   <description>
-    <p>Download online videos from various sources including youtube, vimeo and much more!</p>
+    <p>Download online videos from various sources including archive.org and much more!</p>
   </description>
   <custom>
      <value key="x-appcenter-color-primary">#F2C94C</value>
