@@ -1,6 +1,6 @@
 Source: com.github.bernardodsanderson.vido
 Section: x11
-Priority: extra
+Priority: optional
 Maintainer: Bernardo Anderson <bernardo@anderson.plus>
 Build-Depends: cmake (>= 2.8),
                debhelper (>= 9),
