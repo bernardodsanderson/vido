@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright 2017 Bernardo Anderson <bernardodsanderson@gmail.com> -->
 <component type="desktop">
-  <id>com.github.bernardodsanderson.vido.desktop</id>
+  <id>com.github.bernardodsanderson.vido</id>
   <metadata_license>CC0</metadata_license>
+  <project_license>GPL-3.0+</project_license>
   <name>VIDO</name>
   <summary>Online Video Downloader</summary>
   <description>
