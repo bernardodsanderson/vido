@@ -1,7 +1,7 @@
 Source: com.github.bernardodsanderson.vido
 Section: x11
 Priority: extra
-Maintainer: Bernardo Anderson <bernardo@anderson.plus>
+Maintainer: Bernardo Anderson <bernardodsanderson@gmail.com>
 Build-Depends: debhelper (>= 10.5.1),
                libgtk-3-dev (>= 3.10),
                gettext,
