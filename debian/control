@@ -6,10 +6,11 @@ Build-Depends: debhelper (>= 10.5.1),
                libgtk-3-dev (>= 3.10),
                gettext,
                valac (>= 0.28.0),
-               youtube-dl
+               youtube-dl,
+               meson
 Standards-Version: 4.1.1
 
 Package: com.github.bernardodsanderson.vido
 Architecture: any
 Depends: ${misc:Depends}, ${shlibs:Depends}, youtube-dl
-Description: This is VIDO, an app written in Vala using CMake build system.
+Description: This is VIDO, an app written in Vala using Meson build system.
