@@ -1,9 +1,8 @@
 [Desktop Entry]
 Name=VIDO
-Title=VIDO
 GenericName=VIDO - Video Downloader
 Comment=Download Videos from the Internet
-Categories=Utility;Video;AudioVideo;
+Categories=Utility
 Exec=com.github.bernardodsanderson.vido
 Icon=com.github.bernardodsanderson.vido
 Terminal=false
