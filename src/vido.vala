@@ -2,7 +2,7 @@ using Gtk;
 Window window;
 string folder_location;
 
-int main(string[] args) {
+public static int main(string[] args) {
   init(ref args);
 
   // Global Vars
@@ -25,11 +25,11 @@ int main(string[] args) {
 
   // Add CSS file
   try {
-    css_provider.load_from_path(Constants.PKGDATADIR + "/style.css");
+    css_provider.load_from_resource("/com/github/bernardodsanderson/vido/style.css");
   } catch (GLib.Error e) {
     stderr.printf("%s", e.message);
   }
-  Gtk.StyleContext.add_provider_for_screen(Gdk.Screen.get_default(), css_provider, Gtk.STYLE_PROVIDER_PRIORITY_USER);
+  Gtk.StyleContext.add_provider_for_screen(Gdk.Screen.get_default(), css_provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
 
   // Header
   header.set_show_close_button(true);
