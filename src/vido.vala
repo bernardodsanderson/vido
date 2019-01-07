@@ -1,6 +1,7 @@
 using Gtk;
 Window window;
 string folder_location;
+string video_info;
 
 public static int main(string[] args) {
   init(ref args);
@@ -119,16 +120,51 @@ public static int main(string[] args) {
 
   // Get info button
   info_button.clicked.connect (() => {
-    string str = "Info Loaded...";
+    string str = "Loading info...";
     info_button.label = str;
+    MainLoop loop = new MainLoop ();
     try {
-      string standard_output, standard_error;
-      int exit_status;
-      Process.spawn_command_line_sync("youtube-dl -e --get-duration --get-format " + url_input.get_text(), out standard_output, out standard_error, out exit_status);
-      video_label.label = standard_output;
-      stderr.printf("%s\n", standard_output);
+      string[] spawn_args = {"youtube-dl", "-e", "--get-duration", "--get-format", url_input.get_text()};
+      string[] spawn_env = Environ.get ();
+      Pid child_pid;
+
+      int standard_input;
+      int standard_output;
+      int standard_error;
+
+      Process.spawn_async_with_pipes ("/",
+        spawn_args,
+        spawn_env,
+        SpawnFlags.SEARCH_PATH | SpawnFlags.DO_NOT_REAP_CHILD,
+        null,
+        out child_pid,
+        out standard_input,
+        out standard_output,
+        out standard_error);
+
+      // stdout:
+      IOChannel output = new IOChannel.unix_new (standard_output);
+      output.add_watch (IOCondition.IN | IOCondition.HUP, (channel, condition) => {
+        return process_line (channel, condition, "stdout");
+      });
+
+      // stderr:
+      IOChannel error = new IOChannel.unix_new (standard_error);
+      error.add_watch (IOCondition.IN | IOCondition.HUP, (channel, condition) => {
+        return process_line (channel, condition, "stderr");
+      });
+
+      ChildWatch.add (child_pid, (pid, status) => {
+        // Triggered when the child indicated by child_pid exits
+        video_label.label = video_info;
+        info_button.label = "Get Video Info";
+        Process.close_pid (pid);
+        loop.quit ();
+      });
+
+      loop.run ();
     } catch (SpawnError e) {
-      stderr.printf("%s\n", e.message);
+      stdout.printf ("Error: %s\n", e.message);
     }
     // info_button.set_sensitive (false);
   });
@@ -203,4 +239,26 @@ void on_open_clicked () {
     stderr.printf ("Folder Selected: %s\n", file_chooser.get_filename ());
   }
   file_chooser.destroy ();
+}
+
+private static bool process_line (IOChannel channel, IOCondition condition, string stream_name) {
+	if (condition == IOCondition.HUP) {
+		stdout.printf ("%s: The fd has been closed.\n", stream_name);
+		return false;
+	}
+
+	try {
+		string line;
+    channel.read_line (out line, null, null);
+    video_info = line + video_info;
+		stdout.printf ("%s: %s", stream_name, line);
+	} catch (IOChannelError e) {
+		stdout.printf ("%s: IOChannelError: %s\n", stream_name, e.message);
+		return false;
+	} catch (ConvertError e) {
+		stdout.printf ("%s: ConvertError: %s\n", stream_name, e.message);
+		return false;
+	}
+
+	return true;
 }

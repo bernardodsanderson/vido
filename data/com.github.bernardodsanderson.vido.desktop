@@ -2,7 +2,7 @@
 Name=VIDO
 GenericName=VIDO - Video Downloader
 Comment=Download Videos from the Internet
-Categories=Utility;
+Categories=AudioVideo;
 Exec=com.github.bernardodsanderson.vido
 Icon=com.github.bernardodsanderson.vido
 Terminal=false
