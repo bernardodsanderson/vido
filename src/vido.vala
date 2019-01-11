@@ -184,7 +184,7 @@ public static int main(string[] args) {
     // notification.set_icon (image.gicon);
     string[] spawn_args;
     if (audio) { // --extract-audio
-      spawn_args = {"youtube-dl", "--no-warnings", "--extract-audio --audio-format 'mp3' ", url_input.get_text()};
+      spawn_args = {"youtube-dl", "--no-warnings", "--extract-audio", url_input.get_text()};
     } else if (subtitles) {
       spawn_args = {"youtube-dl", "--no-warnings", "--all-subs", url_input.get_text()};
     } else {
