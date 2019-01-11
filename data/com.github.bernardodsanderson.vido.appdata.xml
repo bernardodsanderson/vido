@@ -9,6 +9,13 @@
   <description>
     <p>Download online videos from various sources including archive.org and much more!</p>
   </description>
+  ​<releases>
+  ​  <release version="1.2.2" date="2019-01-10" urgency="medium">
+  ​    <description>
+        <p>Fix audio download issues</p>
+      </description>
+  ​  </release>
+  ​</releases>
   <custom>
      <value key="x-appcenter-color-primary">#F2C94C</value>
      <value key="x-appcenter-color-primary-text">#333</value>
