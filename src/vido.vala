@@ -8,17 +8,17 @@ public static int main(string[] args) {
 
   // Global Vars
   var css_provider = new Gtk.CssProvider();
-  var download_button = new Button.with_label("Download");
+  var download_button = new Button.with_label (_("Download"));
   var header = new HeaderBar();
   var window = new Window();
   var url_input = new Entry();
   bool has_input = false;
   bool has_location = false;
-  var location_button = new Button.with_label("Select Folder to Save");
+  var location_button = new Button.with_label (_("Select Folder to Save"));
   var video_label = new Label("");
-  var info_button = new Button.with_label("Get Video Info");
-  var audio_only = new CheckButton.with_label ("Audio Only");
-  var with_subtitles = new CheckButton.with_label ("Add Subtitles");
+  var info_button = new Button.with_label (_("Get Video Info"));
+  var audio_only = new CheckButton.with_label (_("Audio Only"));
+  var with_subtitles = new CheckButton.with_label (_("Add Subtitles"));
   bool audio = false;
   bool subtitles = false;
   // Grid
@@ -34,7 +34,7 @@ public static int main(string[] args) {
 
   // Header
   header.set_show_close_button(true);
-  header.set_title("VIDO - Video Downloader");
+  header.set_title (_("VIDO - Video Downloader"));
   
   // Window
   window.set_border_width(15);
@@ -49,7 +49,7 @@ public static int main(string[] args) {
 
   // URL input
   url_input.get_style_context().add_class("inputurl");
-  url_input.set_placeholder_text("Enter url...");
+  url_input.set_placeholder_text (_("Enter URL…"));
   url_input.changed.connect (() => {
     string url_input_text = url_input.text;
     if (url_input_text.length > 1) {
@@ -64,10 +64,10 @@ public static int main(string[] args) {
   url_input.set_input_purpose(Gtk.InputPurpose.URL);
   url_input.icon_press.connect ((pos, event) => {
     if (pos == Gtk.EntryIconPosition.SECONDARY) {
-      info_button.label = "Get Video Info";
+      info_button.label = _("Get Video Info");
       video_label.label = "";
       url_input.set_text ("");
-      download_button.label = "Download";
+      download_button.label = _("Download");
       with_subtitles.active = false;
       download_button.set_sensitive (false);
       audio_only.active = false;
@@ -120,7 +120,7 @@ public static int main(string[] args) {
 
   // Get info button
   info_button.clicked.connect (() => {
-    string str = "Loading info...";
+    string str = _("Loading info…");
     info_button.label = str;
     MainLoop loop = new MainLoop ();
     try {
@@ -157,7 +157,7 @@ public static int main(string[] args) {
       ChildWatch.add (child_pid, (pid, status) => {
         // Triggered when the child indicated by child_pid exits
         video_label.label = video_info;
-        info_button.label = "Get Video Info";
+        info_button.label = _("Get Video Info");
         Process.close_pid (pid);
         loop.quit ();
       });
@@ -175,7 +175,7 @@ public static int main(string[] args) {
   download_button.get_style_context().add_class("downloadbutton");
   download_button.set_sensitive (false);
   download_button.clicked.connect (() => {
-    download_button.label = "Downloading...";
+    download_button.label = _("Downloading…");
     download_button.set_sensitive (false);
     // var notification = new Notification (_("Hello World"));
     // notification.set_body (_("This is my first notification!"));
@@ -204,7 +204,7 @@ public static int main(string[] args) {
 
       ChildWatch.add (child_pid, (pid, status) => {
         // Triggered when the child indicated by child_pid exits
-        download_button.label = "Finished!";
+        download_button.label = _("Finished!");
         download_button.set_sensitive (true);
         Process.close_pid (pid);
         loop.quit ();
@@ -229,11 +229,11 @@ public static int main(string[] args) {
 
 void on_open_clicked () {
   var file_chooser = new FileChooserDialog (
-    "Open Folder",
+    _("Open Folder"),
     window,
     FileChooserAction.SELECT_FOLDER,
-    "_Cancel", ResponseType.CANCEL,
-    "_Open", ResponseType.ACCEPT);
+    _("_Cancel"), ResponseType.CANCEL,
+    _("_Open"), ResponseType.ACCEPT);
   if (file_chooser.run () == ResponseType.ACCEPT) {
     folder_location = file_chooser.get_filename ();
     stderr.printf ("Folder Selected: %s\n", file_chooser.get_filename ());

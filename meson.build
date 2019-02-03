@@ -2,6 +2,12 @@
 project('com.github.bernardodsanderson.vido', 'vala', 'c')
 
 gnome = import('gnome')
+i18n = import('i18n')
+
+add_project_arguments(
+    '-DGETTEXT_PACKAGE="@0@"'.format(meson.project_name()),
+    language: 'c'
+)
 
 asresources = gnome.compile_resources(
   'as-resources', 'data/' + meson.project_name() + '.gresource.xml',
@@ -26,14 +32,18 @@ executable(
 )
 
 #Install our .desktop file so the Applications Menu will see it
-install_data(
-    join_paths('data', meson.project_name() + '.desktop'),
+i18n.merge_file(
+    input: join_paths('data', meson.project_name() + '.desktop.in'),
+    output: meson.project_name() + '.desktop',
+    po_dir: join_paths(meson.source_root(), 'po', 'extra'),
     install_dir: join_paths(get_option('datadir'), 'applications')
 )
 
 #Install our .appdata.xml file so AppCenter will see it
-install_data(
-    join_paths('data', meson.project_name() + '.appdata.xml'),
+i18n.merge_file(
+    input: join_paths('data', meson.project_name() + '.appdata.xml.in'),
+    output: meson.project_name() + '.appdata.xml',
+    po_dir: join_paths(meson.source_root(), 'po', 'extra'),
     install_dir: join_paths(get_option('datadir'), 'metainfo')
 )
 
@@ -50,3 +60,5 @@ foreach i : icon_sizes
         install_dir: join_paths(get_option('datadir'), 'icons', 'hicolor', i + 'x' + i + '@2', 'apps')
     )
 endforeach
+
+subdir('po')
