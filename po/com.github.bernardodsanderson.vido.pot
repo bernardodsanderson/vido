@@ -1,0 +1,76 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the com.github.bernardodsanderson.vido package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: com.github.bernardodsanderson.vido\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-02-03 14:38+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Global Vars
+#: src/vido.vala:11 src/vido.vala:70
+msgid "Download"
+msgstr ""
+
+#: src/vido.vala:17
+msgid "Select Folder to Save"
+msgstr ""
+
+#. Triggered when the child indicated by child_pid exits
+#: src/vido.vala:19 src/vido.vala:67 src/vido.vala:160
+msgid "Get Video Info"
+msgstr ""
+
+#: src/vido.vala:20
+msgid "Audio Only"
+msgstr ""
+
+#: src/vido.vala:21
+msgid "Add Subtitles"
+msgstr ""
+
+#. Header
+#: src/vido.vala:37
+msgid "VIDO - Video Downloader"
+msgstr ""
+
+#. URL input
+#: src/vido.vala:52
+msgid "Enter URL…"
+msgstr ""
+
+#. Get info button
+#: src/vido.vala:123
+msgid "Loading info…"
+msgstr ""
+
+#: src/vido.vala:178
+msgid "Downloading…"
+msgstr ""
+
+#. Triggered when the child indicated by child_pid exits
+#: src/vido.vala:207
+msgid "Finished!"
+msgstr ""
+
+#: src/vido.vala:232
+msgid "Open Folder"
+msgstr ""
+
+#: src/vido.vala:235
+msgid "_Cancel"
+msgstr ""
+
+#: src/vido.vala:236
+msgid "_Open"
+msgstr ""

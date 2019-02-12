@@ -1,0 +1,65 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the extra package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: extra\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-02-03 14:38+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: data/com.github.bernardodsanderson.vido.appdata.xml.in:7
+#: data/com.github.bernardodsanderson.vido.desktop.in:3
+msgid "VIDO"
+msgstr ""
+
+#: data/com.github.bernardodsanderson.vido.appdata.xml.in:8
+msgid "Online Video Downloader"
+msgstr ""
+
+#: data/com.github.bernardodsanderson.vido.appdata.xml.in:10
+msgid ""
+"Download online videos from various sources including archive.org and much "
+"more!"
+msgstr ""
+
+#: data/com.github.bernardodsanderson.vido.appdata.xml.in:15
+msgid "Fix audio download issues"
+msgstr ""
+
+#: data/com.github.bernardodsanderson.vido.appdata.xml.in:29
+msgid "Normal Mode"
+msgstr ""
+
+#: data/com.github.bernardodsanderson.vido.appdata.xml.in:33
+msgid "Ready to Download"
+msgstr ""
+
+#: data/com.github.bernardodsanderson.vido.appdata.xml.in:37
+msgid "Bernardo Anderson"
+msgstr ""
+
+#: data/com.github.bernardodsanderson.vido.desktop.in:4
+msgid "VIDO - Video Downloader"
+msgstr ""
+
+#: data/com.github.bernardodsanderson.vido.desktop.in:5
+msgid "Download Videos from the Internet"
+msgstr ""
+
+#: data/com.github.bernardodsanderson.vido.desktop.in:8
+msgid "com.github.bernardodsanderson.vido"
+msgstr ""
+
+#: data/com.github.bernardodsanderson.vido.desktop.in:11
+msgid "Video;Download;Internet;"
+msgstr ""
