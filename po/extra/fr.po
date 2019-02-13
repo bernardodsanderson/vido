@@ -1,0 +1,67 @@
+# French translations for the extra package.
+# Copyright (C) 2019 THE extra'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the com.github.bernardodsanderson.vido package.
+# NathanBnm, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: extra\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-02-03 14:38+0900\n"
+"PO-Revision-Date: 2019-02-13 20:04+0100\n"
+"Last-Translator: NathanBnm\n"
+"Language-Team: Français\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: data/com.github.bernardodsanderson.vido.appdata.xml.in:7
+#: data/com.github.bernardodsanderson.vido.desktop.in:3
+msgid "VIDO"
+msgstr "VIDO"
+
+#: data/com.github.bernardodsanderson.vido.appdata.xml.in:8
+msgid "Online Video Downloader"
+msgstr "Téléchargeur de vidéo en ligne"
+
+#: data/com.github.bernardodsanderson.vido.appdata.xml.in:10
+msgid ""
+"Download online videos from various sources including archive.org and much "
+"more!"
+msgstr ""
+"Téléchargez des vidéos depuis des sources variées, incluant archive.org et plus "
+"encore !"
+
+#: data/com.github.bernardodsanderson.vido.appdata.xml.in:15
+msgid "Fix audio download issues"
+msgstr "Correction des problèmes de son"
+
+#: data/com.github.bernardodsanderson.vido.appdata.xml.in:29
+msgid "Normal Mode"
+msgstr "Mode normal"
+
+#: data/com.github.bernardodsanderson.vido.appdata.xml.in:33
+msgid "Ready to Download"
+msgstr "Prêt à télécharger"
+
+#: data/com.github.bernardodsanderson.vido.appdata.xml.in:37
+msgid "Bernardo Anderson"
+msgstr "Bernardo Anderson"
+
+#: data/com.github.bernardodsanderson.vido.desktop.in:4
+msgid "VIDO - Video Downloader"
+msgstr "VIDO - Téléchargeur de vidéo"
+
+#: data/com.github.bernardodsanderson.vido.desktop.in:5
+msgid "Download Videos from the Internet"
+msgstr "Téléchargez des vidéos depuis Internet"
+
+#: data/com.github.bernardodsanderson.vido.desktop.in:8
+msgid "com.github.bernardodsanderson.vido"
+msgstr "com.github.bernardodsanderson.vido"
+
+#: data/com.github.bernardodsanderson.vido.desktop.in:11
+msgid "Video;Download;Internet;"
+msgstr "Vidéo;Téléchargement;Internet;"
