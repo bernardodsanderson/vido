@@ -35,7 +35,7 @@ public static int main(string[] args) {
   // Header
   header.set_show_close_button(true);
   header.set_title (_("VIDO - Video Downloader"));
-  
+
   // Window
   window.set_border_width(15);
   // window.set_default_size(600, 800);
@@ -222,7 +222,7 @@ public static int main(string[] args) {
   location_button.grab_focus();
   window.add(grid);
   window.show_all();
-  
+
   Gtk.main();
   return 0;
 }
