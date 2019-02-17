@@ -53,10 +53,13 @@ public static int main(string[] args) {
   url_input.changed.connect (() => {
     string url_input_text = url_input.text;
     if (url_input_text.length > 1) {
+      info_button.sensitive = true;
       if (has_location) {
         download_button.set_sensitive (true);
       }
       has_input = true;
+    } else {
+      info_button.sensitive = false;
     }
   });
   // Add a delete-button:
@@ -119,6 +122,7 @@ public static int main(string[] args) {
   grid.attach (video_label, 0, 3, 75, 1);
 
   // Get info button
+  info_button.sensitive = false;
   info_button.clicked.connect (() => {
     string str = _("Loading info…");
     info_button.label = str;
