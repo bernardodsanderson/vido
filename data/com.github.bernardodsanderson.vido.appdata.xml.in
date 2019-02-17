@@ -10,6 +10,13 @@
     <p>Download online videos from various sources including archive.org and much more!</p>
   </description>
   ​<releases>
+    <release version="1.2.4" date="2019-02-16" urgency="low">
+  ​    <description>
+        <p>Add Russian translation (thank you camellan)</p>
+        <p>Add French translation (thank you NathanBnm)</p>
+        <p>Make 'Get Video Info' button will be disabled if there's no url (thank you ryonakano) </p>
+      </description>
+  ​  </release>
     <release version="1.2.3" date="2019-02-11" urgency="low">
   ​    <description>
         <p>Make App Translatable</p>
