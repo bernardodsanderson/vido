@@ -160,7 +160,17 @@ public static int main(string[] args) {
 
       ChildWatch.add (child_pid, (pid, status) => {
         // Triggered when the child indicated by child_pid exits
-        video_label.label = video_info;
+        if (status == 0) {
+          video_label.label = video_info;
+        } else {
+          video_label.label = "";
+          var error_dialog = new Granite.MessageDialog.with_image_from_icon_name (_("Unable to fetch the video info"), _("The following error message may be helpful:"), "dialog-error");
+          error_dialog.transient_for = window;
+          error_dialog.show_error_details (video_info);
+          error_dialog.run ();
+          error_dialog.destroy ();
+        }
+        video_info = ""; // Clear the video info (or the error message)
         info_button.label = _("Get Video Info");
         Process.close_pid (pid);
         loop.quit ();
