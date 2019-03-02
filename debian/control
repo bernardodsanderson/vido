@@ -7,7 +7,8 @@ Build-Depends: debhelper (>= 10.5.1),
                gettext,
                valac (>= 0.28.0),
                youtube-dl,
-               meson
+               meson,
+               granite
 Standards-Version: 4.1.1
 
 Package: com.github.bernardodsanderson.vido
