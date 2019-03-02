@@ -14,8 +14,9 @@ Download online videos from various sources including archive.org and much more!
 Please make sure you have these dependencies first before building.
 
 ```
-gtk+-3.0
 glib-2.0
+granite
+gtk+-3.0
 youtube-dl
 ```
 To build locally:
