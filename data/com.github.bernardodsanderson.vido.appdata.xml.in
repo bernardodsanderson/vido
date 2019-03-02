@@ -10,6 +10,12 @@
     <p>Download online videos from various sources including archive.org and much more!</p>
   </description>
   ​<releases>
+    <release version="1.2.5" date="2019-03-01" urgency="low">
+  ​    <description>
+        <p>Update app category</p>
+        <p>Fix window getting too big due to error messages (thank you ryonakano)</p>
+      </description>
+  ​  </release>
     <release version="1.2.4" date="2019-02-16" urgency="low">
   ​    <description>
         <p>Add Russian translation (thank you camellan)</p>
