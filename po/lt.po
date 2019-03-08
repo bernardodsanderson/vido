@@ -1,0 +1,77 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the com.github.bernardodsanderson.vido package.
+# Moo, 2019.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: com.github.bernardodsanderson.vido\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-02-03 14:38+0900\n"
+"PO-Revision-Date: 2019-03-08 17:19+0200\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.0.6\n"
+"Last-Translator: Moo\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Language: lt\n"
+
+#. Global Vars
+#: src/vido.vala:11 src/vido.vala:70
+msgid "Download"
+msgstr "Atsisiųsti"
+
+#: src/vido.vala:17
+msgid "Select Folder to Save"
+msgstr "Pasirinkti aplanką į kurį įrašyti"
+
+#. Triggered when the child indicated by child_pid exits
+#: src/vido.vala:19 src/vido.vala:67 src/vido.vala:160
+msgid "Get Video Info"
+msgstr "Gauti informaciją apie vaizdo įrašą"
+
+#: src/vido.vala:20
+msgid "Audio Only"
+msgstr "Tik garsas"
+
+#: src/vido.vala:21
+msgid "Add Subtitles"
+msgstr "Pridėti subtitrus"
+
+#. Header
+#: src/vido.vala:37
+msgid "VIDO - Video Downloader"
+msgstr "VIDO - Vaizdo įrašų atsiuntimo programa"
+
+#. URL input
+#: src/vido.vala:52
+msgid "Enter URL…"
+msgstr "Įveskite URL…"
+
+#. Get info button
+#: src/vido.vala:123
+msgid "Loading info…"
+msgstr "Įkeliama informacija…"
+
+#: src/vido.vala:178
+msgid "Downloading…"
+msgstr "Atsisiunčiama…"
+
+#. Triggered when the child indicated by child_pid exits
+#: src/vido.vala:207
+msgid "Finished!"
+msgstr "Užbaigta!"
+
+#: src/vido.vala:232
+msgid "Open Folder"
+msgstr "Atverti aplanką"
+
+#: src/vido.vala:235
+msgid "_Cancel"
+msgstr "_Atsisakyti"
+
+#: src/vido.vala:236
+msgid "_Open"
+msgstr "A_tverti"
