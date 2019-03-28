@@ -52,7 +52,7 @@ public static int main(string[] args) {
   url_input.set_placeholder_text (_("Enter URL…"));
   url_input.changed.connect (() => {
     string url_input_text = url_input.text;
-    if (url_input_text.length > 1) {
+    if (url_input_text != "") {
       info_button.sensitive = true;
       if (has_location) {
         download_button.set_sensitive (true);
@@ -60,6 +60,7 @@ public static int main(string[] args) {
       has_input = true;
     } else {
       info_button.sensitive = false;
+      download_button.sensitive = false;
     }
   });
   // Add a delete-button:
