@@ -1,0 +1,77 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the com.github.bernardodsanderson.vido package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: com.github.bernardodsanderson.vido\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-02-03 14:38+0900\n"
+"PO-Revision-Date: 2019-03-29 14:09+0100\n"
+"Language-Team: Dutch <vistausss@outlook.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.1.1\n"
+"Last-Translator: Heimen Stoffels <vistausss@outlook.com>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: nl_NL\n"
+
+#. Global Vars
+#: src/vido.vala:11 src/vido.vala:70
+msgid "Download"
+msgstr "Downloaden"
+
+#: src/vido.vala:17
+msgid "Select Folder to Save"
+msgstr "Opslagmap kiezen"
+
+#. Triggered when the child indicated by child_pid exits
+#: src/vido.vala:19 src/vido.vala:67 src/vido.vala:160
+msgid "Get Video Info"
+msgstr "Video-informatie ophalen"
+
+#: src/vido.vala:20
+msgid "Audio Only"
+msgstr "Alleen audio"
+
+#: src/vido.vala:21
+msgid "Add Subtitles"
+msgstr "Ondertiteling toevoegen"
+
+#. Header
+#: src/vido.vala:37
+msgid "VIDO - Video Downloader"
+msgstr "VIDO - Video-downloader"
+
+#. URL input
+#: src/vido.vala:52
+msgid "Enter URL…"
+msgstr "Voer een url in…"
+
+#. Get info button
+#: src/vido.vala:123
+msgid "Loading info…"
+msgstr "Bezig met laden van informatie…"
+
+#: src/vido.vala:178
+msgid "Downloading…"
+msgstr "Bezig met downloaden…"
+
+#. Triggered when the child indicated by child_pid exits
+#: src/vido.vala:207
+msgid "Finished!"
+msgstr "Voltooid!"
+
+#: src/vido.vala:232
+msgid "Open Folder"
+msgstr "Map openen"
+
+#: src/vido.vala:235
+msgid "_Cancel"
+msgstr "Afbre_ken"
+
+#: src/vido.vala:236
+msgid "_Open"
+msgstr "_Openen"
