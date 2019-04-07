@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.bernardodsanderson.vido\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-03 14:38+0900\n"
+"POT-Creation-Date: 2019-03-17 19:34+0100\n"
 "PO-Revision-Date: 2019-02-13 19:58+0100\n"
 "Last-Translator: NathanBnm\n"
 "Language-Team: Français\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #. Global Vars
-#: src/vido.vala:11 src/vido.vala:70
+#: src/vido.vala:11 src/vido.vala:73
 msgid "Download"
 msgstr "Télécharger"
 
@@ -26,8 +26,8 @@ msgstr "Télécharger"
 msgid "Select Folder to Save"
 msgstr "Sélectionner un dossier où enregistrer"
 
-#. Triggered when the child indicated by child_pid exits
-#: src/vido.vala:19 src/vido.vala:67 src/vido.vala:160
+#. Clear the video info (or the error message)
+#: src/vido.vala:19 src/vido.vala:70 src/vido.vala:174
 msgid "Get Video Info"
 msgstr "Obtenir les informations sur la vidéo"
 
@@ -49,28 +49,35 @@ msgstr "VIDO - Téléchargeur de vidéo"
 msgid "Enter URL…"
 msgstr "Entrez une URL…"
 
-#. Get info button
-#: src/vido.vala:123
+#: src/vido.vala:127
 msgid "Loading info…"
 msgstr "Chargement des informations…"
 
-#: src/vido.vala:178
+#: src/vido.vala:167
+msgid "Unable to fetch the video info"
+msgstr "Impossible de récupérer les informations sur la vidéo"
+
+#: src/vido.vala:167
+msgid "The following error message may be helpful:"
+msgstr "Le message d'erreur suivant peut être utile :"
+
+#: src/vido.vala:192
 msgid "Downloading…"
 msgstr "Téléchargement…"
 
 #. Triggered when the child indicated by child_pid exits
-#: src/vido.vala:207
+#: src/vido.vala:221
 msgid "Finished!"
 msgstr "Terminé !"
 
-#: src/vido.vala:232
+#: src/vido.vala:246
 msgid "Open Folder"
 msgstr "Ouvrir le dossier"
 
-#: src/vido.vala:235
+#: src/vido.vala:249
 msgid "_Cancel"
 msgstr "_Annuler"
 
-#: src/vido.vala:236
+#: src/vido.vala:250
 msgid "_Open"
 msgstr "_Ouvrir"
