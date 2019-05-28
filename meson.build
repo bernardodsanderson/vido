@@ -19,7 +19,8 @@ asresources = gnome.compile_resources(
 executable(
     meson.project_name(),
     'src/config.vala',
-    'src/vido.vala',
+    'src/Application.vala',
+    'src/MainWindow.vala',
     asresources,
     vala_args: [
         '--pkg=posix'
