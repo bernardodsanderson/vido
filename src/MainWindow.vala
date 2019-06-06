@@ -29,8 +29,8 @@ public class MainWindow : Gtk.ApplicationWindow {
         url_input.placeholder_text = _("Enter URL…");
 
         // Add a clear icon
-        url_input.set_icon_from_icon_name (Gtk.EntryIconPosition.SECONDARY, "edit-clear");
-        url_input.set_input_purpose (Gtk.InputPurpose.URL);
+        url_input.secondary_icon_name = "edit-clear";
+        url_input.input_purpose = Gtk.InputPurpose.URL;
 
         // Save location button
         var location_button = new Gtk.Button.with_label (_("Select Folder to Save"));
@@ -74,7 +74,8 @@ public class MainWindow : Gtk.ApplicationWindow {
         url_input.changed.connect (() => {
             if (url_input.text != "") {
                 info_button.sensitive = true;
-                if (folder_location.length > 0) {
+
+                if (folder_location != "") {
                     download_button.sensitive = true;
                 }
             } else {
@@ -98,7 +99,8 @@ public class MainWindow : Gtk.ApplicationWindow {
         location_button.clicked.connect (() => {
             on_open_clicked ();
             location_button.label = folder_location;
-            if (folder_location.length > 0) {
+
+            if (folder_location != "") {
                 if (url_input.text != "") {
                     download_button.sensitive = true;
                 }
@@ -124,7 +126,7 @@ public class MainWindow : Gtk.ApplicationWindow {
             info_button.label = str;
             MainLoop loop = new MainLoop ();
             try {
-                string[] spawn_args = {"youtube-dl", "-e", "--get-duration", "--get-format", url_input.text};
+                string[] spawn_args = { "youtube-dl", "-e", "--get-duration", "--get-format", url_input.text };
                 string[] spawn_env = Environ.get ();
                 Pid child_pid;
 
@@ -169,6 +171,7 @@ public class MainWindow : Gtk.ApplicationWindow {
                         error_dialog.run ();
                         error_dialog.destroy ();
                     }
+
                     video_info = ""; // Clear the video info (or the error message)
                     info_button.label = _("Get Video Info");
                     Process.close_pid (pid);
@@ -191,12 +194,13 @@ public class MainWindow : Gtk.ApplicationWindow {
             // notification.set_icon (image.gicon);
             string[] spawn_args;
             if (audio_only.active) { // --extract-audio
-                spawn_args = {"youtube-dl", "--no-warnings", "--extract-audio", url_input.text};
+                spawn_args = { "youtube-dl", "--no-warnings", "--extract-audio", url_input.text };
             } else if (with_subtitles.active) {
-                spawn_args = {"youtube-dl", "--no-warnings", "--all-subs", url_input.text};
+                spawn_args = { "youtube-dl", "--no-warnings", "--all-subs", url_input.text };
             } else {
-                spawn_args = {"youtube-dl", "--no-warnings", url_input.text};
+                spawn_args = { "youtube-dl", "--no-warnings", url_input.text };
             }
+
             MainLoop loop = new MainLoop ();
             try {
                 string[] spawn_env = Environ.get ();
