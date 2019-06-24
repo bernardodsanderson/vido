@@ -18,8 +18,8 @@ asresources = gnome.compile_resources(
 # Create a new executable, list the files we want to compile, list the dependencies we need, and install
 executable(
     meson.project_name(),
-    'src/config.vala',
-    'src/vido.vala',
+    'src/Application.vala',
+    'src/MainWindow.vala',
     asresources,
     vala_args: [
         '--pkg=posix'
