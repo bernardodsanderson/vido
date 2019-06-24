@@ -10,6 +10,11 @@
     <p>Download online videos from various sources including archive.org and much more!</p>
   </description>
   ​<releases>
+    <release version="1.3.0" date="2019-06-23" urgency="low">
+  ​    <description>
+        <p>App refactoring (thanks ryonakano)</p>
+      </description>
+  ​  </release>
     <release version="1.2.8" date="2019-06-05" urgency="low">
   ​    <description>
         <p>Translation Updates</p>
