@@ -1,0 +1,68 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE extra'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the com.github.bernardodsanderson.vido package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: extra\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-02-03 14:38+0900\n"
+"PO-Revision-Date: 2019-03-29 14:10+0100\n"
+"Language-Team: Dutch <vistausss@outlook.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.1.1\n"
+"Last-Translator: Heimen Stoffels <vistausss@outlook.com>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: nl_NL\n"
+
+#: data/com.github.bernardodsanderson.vido.appdata.xml.in:7
+#: data/com.github.bernardodsanderson.vido.desktop.in:3
+msgid "VIDO"
+msgstr "VIDO"
+
+#: data/com.github.bernardodsanderson.vido.appdata.xml.in:8
+msgid "Online Video Downloader"
+msgstr "Online video-downloader"
+
+#: data/com.github.bernardodsanderson.vido.appdata.xml.in:10
+msgid ""
+"Download online videos from various sources including archive.org and much "
+"more!"
+msgstr ""
+"Download online video's uit verschillende bronnen, waaronder archive.org "
+"en vele anderen!"
+
+#: data/com.github.bernardodsanderson.vido.appdata.xml.in:15
+msgid "Fix audio download issues"
+msgstr "Audio-downloadproblemen oplossen"
+
+#: data/com.github.bernardodsanderson.vido.appdata.xml.in:29
+msgid "Normal Mode"
+msgstr "Normale modus"
+
+#: data/com.github.bernardodsanderson.vido.appdata.xml.in:33
+msgid "Ready to Download"
+msgstr "Klaar om te downloaden"
+
+#: data/com.github.bernardodsanderson.vido.appdata.xml.in:37
+msgid "Bernardo Anderson"
+msgstr "Bernardo Anderson"
+
+#: data/com.github.bernardodsanderson.vido.desktop.in:4
+msgid "VIDO - Video Downloader"
+msgstr "VIDO - Video-downloader"
+
+#: data/com.github.bernardodsanderson.vido.desktop.in:5
+msgid "Download Videos from the Internet"
+msgstr "Download video's van het internet"
+
+#: data/com.github.bernardodsanderson.vido.desktop.in:8
+msgid "com.github.bernardodsanderson.vido"
+msgstr "com.github.bernardodsanderson.vido"
+
+#: data/com.github.bernardodsanderson.vido.desktop.in:11
+msgid "Video;Download;Internet;"
+msgstr "Video;Download;Internet;"
