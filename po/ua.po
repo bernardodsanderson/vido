@@ -1,0 +1,74 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: vido ua\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-02-03 14:38+0900\n"
+"PO-Revision-Date: 2019-03-04 23:10+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.0.6\n"
+"X-Poedit-Basepath: .\n"
+"Last-Translator: Ostap Bolibrukh <info.ostapp@gmail.com>\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Language: uk_UA\n"
+
+#. Global Vars
+#: src/vido.vala:11 src/vido.vala:70
+msgid "Download"
+msgstr "Завантажити"
+
+#: src/vido.vala:17
+msgid "Select Folder to Save"
+msgstr "Вибрати папку для збереження"
+
+#. Triggered when the child indicated by child_pid exits
+#: src/vido.vala:19 src/vido.vala:67 src/vido.vala:160
+msgid "Get Video Info"
+msgstr "Отримати інформацію про відео"
+
+#: src/vido.vala:20
+msgid "Audio Only"
+msgstr "Тільки аудіо"
+
+#: src/vido.vala:21
+msgid "Add Subtitles"
+msgstr "Додати субтитри"
+
+#. Header
+#: src/vido.vala:37
+msgid "VIDO - Video Downloader"
+msgstr "VIDO - Відео завантажувач"
+
+#. URL input
+#: src/vido.vala:52
+msgid "Enter URL…"
+msgstr "Введіть адресу…"
+
+#. Get info button
+#: src/vido.vala:123
+msgid "Loading info…"
+msgstr "Завантаження інформації…"
+
+#: src/vido.vala:178
+msgid "Downloading…"
+msgstr "Завантаження…"
+
+#. Triggered when the child indicated by child_pid exits
+#: src/vido.vala:207
+msgid "Finished!"
+msgstr "Готово!"
+
+#: src/vido.vala:232
+msgid "Open Folder"
+msgstr "Відкрити папку"
+
+#: src/vido.vala:235
+msgid "_Cancel"
+msgstr "_Скасувати"
+
+#: src/vido.vala:236
+msgid "_Open"
+msgstr "_Відкрити"
