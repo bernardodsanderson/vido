@@ -10,6 +10,12 @@
     <p>Download online videos from various sources including archive.org and much more!</p>
   </description>
   ​<releases>
+    <release version="1.3.1" date="2019-12-04" urgency="low">
+  ​    <description>
+        <p>Spanish Translation (thanks riesp)</p>
+        <p>Travis CI integration (thanks meisenzahl)</p>
+      </description>
+  ​  </release>
     <release version="1.3.0" date="2019-06-23" urgency="low">
   ​    <description>
         <p>App refactoring (thanks ryonakano)</p>
