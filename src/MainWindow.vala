@@ -46,7 +46,7 @@ public class MainWindow : Gtk.ApplicationWindow {
         url_input.placeholder_text = _("Enter URL…");
 
         // Add a clear icon
-        url_input.secondary_icon_name = "edit-clear";
+        url_input.secondary_icon_name = "edit-clear-symbolic";
         url_input.input_purpose = Gtk.InputPurpose.URL;
 
         // Save location button
