@@ -127,17 +127,6 @@ public class MainWindow : Gtk.ApplicationWindow {
             }
         });
 
-        //  location_button.clicked.connect (() => {
-        //      on_open_clicked ();
-        //      location_button.label = folder_location;
-
-            //  if (folder_location != "") {
-            //      if (url_input.text != "") {
-            //          download_button.sensitive = true;
-            //      }
-            //  }
-        //  });
-
         audio_only.toggled.connect (() => {
             // Emitted when the audio_only has been clicked:
             if (audio_only.active) {
@@ -261,23 +250,6 @@ public class MainWindow : Gtk.ApplicationWindow {
             }
         });
     }
-
-    //  private void on_open_clicked () {
-    //      var file_chooser = new Gtk.FileChooserDialog (
-    //          _("Open Folder"),
-    //          this,
-    //          Gtk.FileChooserAction.SELECT_FOLDER,
-    //          _("_Cancel"), Gtk.ResponseType.CANCEL,
-    //          _("_Open"), Gtk.ResponseType.ACCEPT
-    //      );
-
-    //      if (file_chooser.run () == Gtk.ResponseType.ACCEPT) {
-    //          folder_location = file_chooser.get_filename ();
-    //          stderr.printf ("Folder Selected: %s\n", folder_location);
-    //      }
-
-    //      file_chooser.destroy ();
-    //  }
 
     private string get_destination () {
         string destination = Application.settings.get_string ("destination");
