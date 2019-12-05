@@ -51,6 +51,11 @@ i18n.merge_file(
     install_dir: join_paths(get_option('datadir'), 'metainfo')
 )
 
+install_data(
+    join_paths('data', meson.project_name() + '.gschema.xml'),
+    install_dir: join_paths(get_option('datadir'), 'glib-2.0', 'schemas')
+)
+
 #Install icons
 icon_sizes = ['128', '64', '48', '32', '24', '16']
 
@@ -66,3 +71,5 @@ foreach i : icon_sizes
 endforeach
 
 subdir('po')
+
+meson.add_install_script('meson/post_install.py')

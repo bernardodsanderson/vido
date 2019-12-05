@@ -18,6 +18,7 @@
 public class MainWindow : Gtk.ApplicationWindow {
     private string folder_location;
     private string video_info;
+    private uint configure_id;
 
     public MainWindow (Gtk.Application app) {
         Object (
@@ -137,6 +138,9 @@ public class MainWindow : Gtk.ApplicationWindow {
                 audio_only.active = false;
             }
         });
+
+        Application.settings.bind ("audio-only", audio_only, "active", SettingsBindFlags.DEFAULT);
+        Application.settings.bind ("with-subtitles", with_subtitles, "active", SettingsBindFlags.DEFAULT);
 
         info_button.clicked.connect (() => {
             string str = _("Loading info…");
@@ -282,5 +286,22 @@ public class MainWindow : Gtk.ApplicationWindow {
         }
 
         return true;
+    }
+
+    protected override bool configure_event (Gdk.EventConfigure event) {
+        if (configure_id != 0) {
+            GLib.Source.remove (configure_id);
+        }
+
+        configure_id = Timeout.add (100, () => {
+            configure_id = 0;
+            int x, y;
+            get_position (out x, out y);
+            Application.settings.set ("window-position", "(ii)", x, y);
+
+            return false;
+        });
+
+        return base.configure_event (event);
     }
 }
