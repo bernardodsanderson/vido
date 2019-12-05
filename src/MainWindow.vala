@@ -51,7 +51,11 @@ public class MainWindow : Gtk.ApplicationWindow {
         url_input.input_purpose = Gtk.InputPurpose.URL;
 
         // Save location button
-        var location_button = new Gtk.Button.with_label (_("Select Folder to Save"));
+        var location_label = new Gtk.Label (_("Folder to Save:"));
+        location_label.halign = Gtk.Align.END;
+        var location_button = new Gtk.FileChooserButton (_("Select Folder to Save"), Gtk.FileChooserAction.SELECT_FOLDER);
+        location_button.halign = Gtk.Align.START;
+        location_button.set_filename (get_destination ());
 
         // Audio Only
         var audio_only = new Gtk.CheckButton.with_label (_("Audio Only"));
@@ -81,7 +85,8 @@ public class MainWindow : Gtk.ApplicationWindow {
         grid.row_spacing = 6;
         grid.column_spacing = 6;
         grid.attach (url_input, 0, 0, 75, 1);
-        grid.attach (location_button, 0, 1, 75, 1);
+        grid.attach (location_label, 0, 1, 20, 1);
+        grid.attach_next_to (location_button, location_label, Gtk.PositionType.RIGHT, 2, 1);
         grid.attach (audio_only, 0, 7, 20, 1);
         grid.attach_next_to (with_subtitles, audio_only, Gtk.PositionType.RIGHT, 2, 1);
         grid.attach (video_label, 0, 3, 75, 1);
@@ -114,9 +119,8 @@ public class MainWindow : Gtk.ApplicationWindow {
             }
         });
 
-        location_button.clicked.connect (() => {
-            on_open_clicked ();
-            location_button.label = folder_location;
+        location_button.file_set.connect (() => {
+            Application.settings.set_string ("destination", location_button.get_filename ());
 
             if (folder_location != "") {
                 if (url_input.text != "") {
@@ -124,6 +128,17 @@ public class MainWindow : Gtk.ApplicationWindow {
                 }
             }
         });
+
+        //  location_button.clicked.connect (() => {
+        //      on_open_clicked ();
+        //      location_button.label = folder_location;
+
+            //  if (folder_location != "") {
+            //      if (url_input.text != "") {
+            //          download_button.sensitive = true;
+            //      }
+            //  }
+        //  });
 
         audio_only.toggled.connect (() => {
             // Emitted when the audio_only has been clicked:
@@ -249,21 +264,31 @@ public class MainWindow : Gtk.ApplicationWindow {
         });
     }
 
-    private void on_open_clicked () {
-        var file_chooser = new Gtk.FileChooserDialog (
-            _("Open Folder"),
-            this,
-            Gtk.FileChooserAction.SELECT_FOLDER,
-            _("_Cancel"), Gtk.ResponseType.CANCEL,
-            _("_Open"), Gtk.ResponseType.ACCEPT
-        );
+    //  private void on_open_clicked () {
+    //      var file_chooser = new Gtk.FileChooserDialog (
+    //          _("Open Folder"),
+    //          this,
+    //          Gtk.FileChooserAction.SELECT_FOLDER,
+    //          _("_Cancel"), Gtk.ResponseType.CANCEL,
+    //          _("_Open"), Gtk.ResponseType.ACCEPT
+    //      );
 
-        if (file_chooser.run () == Gtk.ResponseType.ACCEPT) {
-            folder_location = file_chooser.get_filename ();
-            stderr.printf ("Folder Selected: %s\n", folder_location);
+    //      if (file_chooser.run () == Gtk.ResponseType.ACCEPT) {
+    //          folder_location = file_chooser.get_filename ();
+    //          stderr.printf ("Folder Selected: %s\n", folder_location);
+    //      }
+
+    //      file_chooser.destroy ();
+    //  }
+
+    private string get_destination () {
+        string destination = Application.settings.get_string ("destination");
+
+        if (destination != null) {
+            DirUtils.create_with_parents (destination, 0775);
         }
 
-        file_chooser.destroy ();
+        return destination;
     }
 
     private bool process_line (IOChannel channel, IOCondition condition, string stream_name) {
