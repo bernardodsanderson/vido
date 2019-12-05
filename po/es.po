@@ -1,0 +1,84 @@
+# Spanish translations for the com.github.bernardodsanderson.vido package.
+# Copyright (C) 2019 THE com.github.bernardodsanderson.vido\'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the com.github.bernardodsanderson.vido package.
+# Daniel R. <riesp@pm.me>, 2019.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: com.github.bernardodsanderson.vido\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-03-17 19:34+0100\n"
+"PO-Revision-Date: 2019-10-30 16:32+0100\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.0.6\n"
+"Last-Translator: Daniel R. <riesp@pm.me>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: es\n"
+
+#. Global Vars
+#: src/vido.vala:11 src/vido.vala:73
+msgid "Download"
+msgstr "Descargar"
+
+#: src/vido.vala:17
+msgid "Select Folder to Save"
+msgstr "Seleccionar carpeta para guardar"
+
+#. Clear the video info (or the error message)
+#: src/vido.vala:19 src/vido.vala:70 src/vido.vala:174
+msgid "Get Video Info"
+msgstr "Obtener información del vídeo"
+
+#: src/vido.vala:20
+msgid "Audio Only"
+msgstr "Solo audio"
+
+#: src/vido.vala:21
+msgid "Add Subtitles"
+msgstr "Añadir subtítulos"
+
+#. Header
+#: src/vido.vala:37
+msgid "VIDO - Video Downloader"
+msgstr "VIDO - Descargador de vídeos"
+
+#. URL input
+#: src/vido.vala:52
+msgid "Enter URL…"
+msgstr "Introducir URL…"
+
+#: src/vido.vala:127
+msgid "Loading info…"
+msgstr "Cargando información…"
+
+#: src/vido.vala:167
+msgid "Unable to fetch the video info"
+msgstr "No se pudo recuperar la información del vídeo"
+
+#: src/vido.vala:167
+msgid "The following error message may be helpful:"
+msgstr "El siguiente mensaje de error puede ser útil:"
+
+#: src/vido.vala:192
+msgid "Downloading…"
+msgstr "Descargando…"
+
+#. Triggered when the child indicated by child_pid exits
+#: src/vido.vala:221
+msgid "Finished!"
+msgstr "¡Terminado!"
+
+#: src/vido.vala:246
+msgid "Open Folder"
+msgstr "Abrir carpeta"
+
+#: src/vido.vala:249
+msgid "_Cancel"
+msgstr "_Cancelar"
+
+#: src/vido.vala:250
+msgid "_Open"
+msgstr "_Abrir"
