@@ -179,6 +179,7 @@ public class MainWindow : Gtk.ApplicationWindow {
                         video_label.label = video_info;
                     } else {
                         video_label.label = "";
+
                         var error_dialog = new Granite.MessageDialog.with_image_from_icon_name (
                             _("Unable to fetch the video info"),
                             _("The following error message may be helpful:"),
@@ -255,6 +256,8 @@ public class MainWindow : Gtk.ApplicationWindow {
                         download_button.label = _("Finished!");
                         download_button.sensitive = true;
                     } else {
+                        download_button.label = _("Download");
+
                         var error_dialog = new Granite.MessageDialog.with_image_from_icon_name (
                             _("Unable to fetch the video info"),
                             _("The following error message may be helpful:"),
@@ -265,7 +268,6 @@ public class MainWindow : Gtk.ApplicationWindow {
                         error_dialog.destroy ();
                     }
 
-                    download_button.label = _("Download");
                     video_info = ""; // Clear the video info (or the error message)
                     Process.close_pid (pid);
                     loop.quit ();
