@@ -79,19 +79,17 @@ public class MainWindow : Gtk.ApplicationWindow {
         download_button.get_style_context ().add_class ("downloadbutton");
         download_button.sensitive = false;
 
-        location_button.grab_focus ();
-
         var grid = new Gtk.Grid ();
         grid.row_spacing = 6;
         grid.column_spacing = 6;
-        grid.attach (url_input, 0, 0, 75, 1);
-        grid.attach (location_label, 0, 1, 20, 1);
-        grid.attach_next_to (location_button, location_label, Gtk.PositionType.RIGHT, 2, 1);
-        grid.attach (audio_only, 0, 7, 20, 1);
-        grid.attach_next_to (with_subtitles, audio_only, Gtk.PositionType.RIGHT, 2, 1);
-        grid.attach (video_label, 0, 3, 75, 1);
-        grid.attach (info_button, 0, 2, 75, 1);
-        grid.attach (download_button, 0, 8, 75, 12);
+        grid.attach (url_input, 0, 0, 7, 1);
+        grid.attach (location_label, 0, 1, 1, 1);
+        grid.attach (location_button, 1, 1, 1, 1);
+        grid.attach (audio_only, 2, 1, 2, 1);
+        grid.attach (with_subtitles, 4, 1, 2, 1);
+        grid.attach (info_button, 0, 2, 7, 1);
+        grid.attach (video_label, 0, 3, 7, 1);
+        grid.attach (download_button, 0, 4, 7, 1);
         add (grid);
 
         url_input.changed.connect (() => {
