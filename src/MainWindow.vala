@@ -259,7 +259,7 @@ public class MainWindow : Gtk.ApplicationWindow {
                         download_button.label = _("Download");
 
                         var error_dialog = new Granite.MessageDialog.with_image_from_icon_name (
-                            _("Unable to fetch the video info"),
+                            _("Unable to download the video"),
                             _("The following error message may be helpful:"),
                             "dialog-error");
                         error_dialog.transient_for = this;
