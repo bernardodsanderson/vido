@@ -179,6 +179,7 @@ public class MainWindow : Gtk.ApplicationWindow {
                         video_label.label = video_info;
                     } else {
                         video_label.label = "";
+
                         var error_dialog = new Granite.MessageDialog.with_image_from_icon_name (
                             _("Unable to fetch the video info"),
                             _("The following error message may be helpful:"),
@@ -223,17 +224,51 @@ public class MainWindow : Gtk.ApplicationWindow {
                 string[] spawn_env = Environ.get ();
                 Pid child_pid;
 
-                Process.spawn_async (folder_location,
+                int standard_input;
+                int standard_output;
+                int standard_error;
+
+                Process.spawn_async_with_pipes (folder_location,
                     spawn_args,
                     spawn_env,
                     SpawnFlags.SEARCH_PATH | SpawnFlags.DO_NOT_REAP_CHILD,
                     null,
-                    out child_pid);
+                    out child_pid,
+                    out standard_input,
+                    out standard_output,
+                    out standard_error);
+
+                // stdout:
+                IOChannel output = new IOChannel.unix_new (standard_output);
+                output.add_watch (IOCondition.IN | IOCondition.HUP, (channel, condition) => {
+                    return process_line (channel, condition, "stdout");
+                });
+
+                // stderr:
+                IOChannel error = new IOChannel.unix_new (standard_error);
+                error.add_watch (IOCondition.IN | IOCondition.HUP, (channel, condition) => {
+                    return process_line (channel, condition, "stderr");
+                });
 
                 ChildWatch.add (child_pid, (pid, status) => {
                     // Triggered when the child indicated by child_pid exits
-                    download_button.label = _("Finished!");
-                    download_button.sensitive = true;
+                    if (status == 0) {
+                        download_button.label = _("Finished!");
+                        download_button.sensitive = true;
+                    } else {
+                        download_button.label = _("Download");
+
+                        var error_dialog = new Granite.MessageDialog.with_image_from_icon_name (
+                            _("Unable to download the video"),
+                            _("The following error message may be helpful:"),
+                            "dialog-error");
+                        error_dialog.transient_for = this;
+                        error_dialog.show_error_details (video_info);
+                        error_dialog.run ();
+                        error_dialog.destroy ();
+                    }
+
+                    video_info = ""; // Clear the video info (or the error message)
                     Process.close_pid (pid);
                     loop.quit ();
                 });
