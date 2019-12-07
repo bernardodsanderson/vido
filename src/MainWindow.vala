@@ -18,6 +18,7 @@
 public class MainWindow : Gtk.ApplicationWindow {
     private string folder_location;
     private string video_info;
+    private uint configure_id;
 
     public MainWindow (Gtk.Application app) {
         Object (
@@ -50,7 +51,11 @@ public class MainWindow : Gtk.ApplicationWindow {
         url_input.input_purpose = Gtk.InputPurpose.URL;
 
         // Save location button
-        var location_button = new Gtk.Button.with_label (_("Select Folder to Save"));
+        var location_label = new Gtk.Label (_("Folder to Save:"));
+        location_label.halign = Gtk.Align.END;
+        var location_button = new Gtk.FileChooserButton (_("Select Folder to Save"), Gtk.FileChooserAction.SELECT_FOLDER);
+        location_button.halign = Gtk.Align.START;
+        location_button.set_filename (get_destination ());
 
         // Audio Only
         var audio_only = new Gtk.CheckButton.with_label (_("Audio Only"));
@@ -74,18 +79,17 @@ public class MainWindow : Gtk.ApplicationWindow {
         download_button.get_style_context ().add_class ("downloadbutton");
         download_button.sensitive = false;
 
-        location_button.grab_focus ();
-
         var grid = new Gtk.Grid ();
         grid.row_spacing = 6;
         grid.column_spacing = 6;
-        grid.attach (url_input, 0, 0, 75, 1);
-        grid.attach (location_button, 0, 1, 75, 1);
-        grid.attach (audio_only, 0, 7, 20, 1);
-        grid.attach_next_to (with_subtitles, audio_only, Gtk.PositionType.RIGHT, 2, 1);
-        grid.attach (video_label, 0, 3, 75, 1);
-        grid.attach (info_button, 0, 2, 75, 1);
-        grid.attach (download_button, 0, 8, 75, 12);
+        grid.attach (url_input, 0, 0, 7, 1);
+        grid.attach (location_label, 0, 1, 1, 1);
+        grid.attach (location_button, 1, 1, 1, 1);
+        grid.attach (audio_only, 2, 1, 2, 1);
+        grid.attach (with_subtitles, 4, 1, 2, 1);
+        grid.attach (info_button, 0, 2, 7, 1);
+        grid.attach (video_label, 0, 3, 7, 1);
+        grid.attach (download_button, 0, 4, 7, 1);
         add (grid);
 
         url_input.changed.connect (() => {
@@ -113,9 +117,8 @@ public class MainWindow : Gtk.ApplicationWindow {
             }
         });
 
-        location_button.clicked.connect (() => {
-            on_open_clicked ();
-            location_button.label = folder_location;
+        location_button.file_set.connect (() => {
+            Application.settings.set_string ("destination", location_button.get_filename ());
 
             if (folder_location != "") {
                 if (url_input.text != "") {
@@ -137,6 +140,9 @@ public class MainWindow : Gtk.ApplicationWindow {
                 audio_only.active = false;
             }
         });
+
+        Application.settings.bind ("audio-only", audio_only, "active", SettingsBindFlags.DEFAULT);
+        Application.settings.bind ("with-subtitles", with_subtitles, "active", SettingsBindFlags.DEFAULT);
 
         info_button.clicked.connect (() => {
             string str = _("Loading info…");
@@ -280,21 +286,14 @@ public class MainWindow : Gtk.ApplicationWindow {
         });
     }
 
-    private void on_open_clicked () {
-        var file_chooser = new Gtk.FileChooserDialog (
-            _("Open Folder"),
-            this,
-            Gtk.FileChooserAction.SELECT_FOLDER,
-            _("_Cancel"), Gtk.ResponseType.CANCEL,
-            _("_Open"), Gtk.ResponseType.ACCEPT
-        );
+    private string get_destination () {
+        string destination = Application.settings.get_string ("destination");
 
-        if (file_chooser.run () == Gtk.ResponseType.ACCEPT) {
-            folder_location = file_chooser.get_filename ();
-            stderr.printf ("Folder Selected: %s\n", folder_location);
+        if (destination != null) {
+            DirUtils.create_with_parents (destination, 0775);
         }
 
-        file_chooser.destroy ();
+        return destination;
     }
 
     private bool process_line (IOChannel channel, IOCondition condition, string stream_name) {
@@ -317,5 +316,22 @@ public class MainWindow : Gtk.ApplicationWindow {
         }
 
         return true;
+    }
+
+    protected override bool configure_event (Gdk.EventConfigure event) {
+        if (configure_id != 0) {
+            GLib.Source.remove (configure_id);
+        }
+
+        configure_id = Timeout.add (100, () => {
+            configure_id = 0;
+            int x, y;
+            get_position (out x, out y);
+            Application.settings.set ("window-position", "(ii)", x, y);
+
+            return false;
+        });
+
+        return base.configure_event (event);
     }
 }

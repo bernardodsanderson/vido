@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist>
+  <schema path="/com/github/bernardodsanderson/vido/" id="com.github.bernardodsanderson.vido">
+    <key name="audio-only" type="b">
+      <default>false</default>
+      <summary>Download only audio</summary>
+    </key>
+    <key name="with-subtitles" type="b">
+      <default>false</default>
+      <summary>Download with subtitles</summary>
+    </key>
+    <key name="destination" type="s">
+      <default>''</default>
+      <summary>Default destination</summary>
+    </key>
+    <key name="window-position" type="(ii)">
+      <default>(-1, -1)</default>
+      <summary>Window position</summary>
+      <description>Position of last closed window</description>
+    </key>
+  </schema>
+</schemalist>

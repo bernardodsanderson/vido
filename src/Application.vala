@@ -17,6 +17,7 @@
 
 public class Application : Gtk.Application {
     private MainWindow window;
+    public static Settings settings;
 
     public Application () {
         Object (
@@ -25,13 +26,27 @@ public class Application : Gtk.Application {
         );
     }
 
+    static construct {
+        settings = new Settings ("com.github.bernardodsanderson.vido");
+    }
+
     protected override void activate () {
         if (window != null) {
             window.present ();
             return;
         }
 
+        int window_x, window_y;
+        settings.get ("window-position", "(ii)", out window_x, out window_y);
+
         window = new MainWindow (this);
+
+        if (window_x != -1 || window_y != -1) { // Not a first time launch
+            window.move (window_x, window_y);
+        } else { // First time launch
+            window.window_position = Gtk.WindowPosition.CENTER;
+        }
+
         window.show_all ();
     }
 
