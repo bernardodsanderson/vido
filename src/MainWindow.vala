@@ -38,6 +38,7 @@ public class MainWindow : Gtk.ApplicationWindow {
         // Header
         var header = new Gtk.HeaderBar ();
         header.show_close_button = true;
+        header.has_subtitle = false;
         header.title = _("VIDO - Video Downloader");
         set_titlebar (header);
 
