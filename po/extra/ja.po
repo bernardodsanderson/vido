@@ -115,7 +115,7 @@ msgstr "Bernardo Anderson"
 
 #: data/com.github.bernardodsanderson.vido.desktop.in:4
 msgid "VIDO - Video Downloader"
-msgstr "VIDO - Video Downloader"
+msgstr "VIDO - 動画ダウンロードアプリ"
 
 #: data/com.github.bernardodsanderson.vido.desktop.in:5
 msgid "Download Videos from the Internet"
