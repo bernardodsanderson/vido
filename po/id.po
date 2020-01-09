@@ -1,0 +1,84 @@
+# Indonesian translations for the com.github.bernardodsanderson.vido package.
+# Copyright (C) 2019 THE com.github.bernardodsanderson.vido\'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the com.github.bernardodsanderson.vido package.
+# tapsaja <tapsaja@gmail.com>, 2020.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: com.github.bernardodsanderson.vido\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-03-17 19:34+0100\n"
+"PO-Revision-Date: 2020-01-09 11:25+0700\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.0.6\n"
+"Last-Translator: tapsaja <tapsaja@gmail.com>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: id\n"
+
+#. Global Vars
+#: src/vido.vala:11 src/vido.vala:73
+msgid "Download"
+msgstr "Unduh"
+
+#: src/vido.vala:17
+msgid "Select Folder to Save"
+msgstr "Pilih Folder Penyimpanan"
+
+#. Clear the video info (or the error message)
+#: src/vido.vala:19 src/vido.vala:70 src/vido.vala:174
+msgid "Get Video Info"
+msgstr "Info Vídeo"
+
+#: src/vido.vala:20
+msgid "Audio Only"
+msgstr "Audio Saja"
+
+#: src/vido.vala:21
+msgid "Add Subtitles"
+msgstr "Tambah Subtitle"
+
+#. Header
+#: src/vido.vala:37
+msgid "VIDO - Video Downloader"
+msgstr "VIDO - Pengunduh Video"
+
+#. URL input
+#: src/vido.vala:52
+msgid "Enter URL…"
+msgstr "Masukkan URL…"
+
+#: src/vido.vala:127
+msgid "Loading info…"
+msgstr "Memuat info…"
+
+#: src/vido.vala:167
+msgid "Unable to fetch the video info"
+msgstr "Tidak bisa menarik info video"
+
+#: src/vido.vala:167
+msgid "The following error message may be helpful:"
+msgstr "Pesan kesalahan berikut mungkin bisa membantu:"
+
+#: src/vido.vala:192
+msgid "Downloading…"
+msgstr "Mengunduh…"
+
+#. Triggered when the child indicated by child_pid exits
+#: src/vido.vala:221
+msgid "Finished!"
+msgstr "Selesai!"
+
+#: src/vido.vala:246
+msgid "Open Folder"
+msgstr "Buka Folder"
+
+#: src/vido.vala:249
+msgid "_Cancel"
+msgstr "Ba_talkan"
+
+#: src/vido.vala:250
+msgid "_Open"
+msgstr "_Buka"
