@@ -46,10 +46,16 @@ public class MainWindow : Gtk.ApplicationWindow {
         var url_input = new Gtk.Entry ();
         url_input.get_style_context ().add_class ("inputurl");
         url_input.placeholder_text = _("Enter URL…");
-
-        // Add a clear icon
-        url_input.secondary_icon_name = "edit-clear-symbolic";
         url_input.input_purpose = Gtk.InputPurpose.URL;
+
+        // Add a clear icon only when there are some text(s) in the entry
+        url_input.changed.connect (() => {
+            if (url_input.text != "") {
+                url_input.secondary_icon_name = "edit-clear-symbolic";
+            } else {
+                url_input.secondary_icon_name = null;
+            }
+        });
 
         // Save location button
         var location_label = new Gtk.Label (_("Folder to Save:"));
