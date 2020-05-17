@@ -1,0 +1,130 @@
+# Japanese translations for extra package.
+# Copyright (C) 2019 THE extra'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the extra package.
+# Ryo Nakano <ryonakaknock3@gmail.com>, 2019.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: extra\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-12-16 21:49+0900\n"
+"PO-Revision-Date: 2019-12-16 21:52+0900\n"
+"Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
+"Language-Team: none\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 2.2.4\n"
+
+#: data/com.github.bernardodsanderson.vido.appdata.xml.in:7
+#: data/com.github.bernardodsanderson.vido.desktop.in:3
+msgid "VIDO"
+msgstr "VIDO"
+
+#: data/com.github.bernardodsanderson.vido.appdata.xml.in:8
+msgid "Online Video Downloader"
+msgstr "オンライン動画のダウンロードアプリ"
+
+#: data/com.github.bernardodsanderson.vido.appdata.xml.in:10
+msgid ""
+"Download online videos from various sources including archive.org and much "
+"more!"
+msgstr ""
+"archive.org などのさまざまなソースに掲載されているオンライン動画をダウンロー"
+"ドできます！"
+
+#: data/com.github.bernardodsanderson.vido.appdata.xml.in:15
+msgid "Spanish Translation (thanks riesp)"
+msgstr ""
+
+#: data/com.github.bernardodsanderson.vido.appdata.xml.in:16
+msgid "Travis CI integration (thanks meisenzahl)"
+msgstr ""
+
+#: data/com.github.bernardodsanderson.vido.appdata.xml.in:21
+msgid "App refactoring (thanks ryonakano)"
+msgstr ""
+
+#: data/com.github.bernardodsanderson.vido.appdata.xml.in:26
+msgid "Translation Updates"
+msgstr ""
+
+#: data/com.github.bernardodsanderson.vido.appdata.xml.in:27
+msgid "Add Lithuanian translation (thanks welaq)"
+msgstr ""
+
+#: data/com.github.bernardodsanderson.vido.appdata.xml.in:28
+msgid "Fix sensitivity of download_button (thanks ryonakano)"
+msgstr ""
+
+#: data/com.github.bernardodsanderson.vido.appdata.xml.in:29
+msgid "Update French translation (thanks NathanBnm)"
+msgstr ""
+
+#: data/com.github.bernardodsanderson.vido.appdata.xml.in:30
+msgid "Remove unneeded files (thanks ryonakano)"
+msgstr ""
+
+#: data/com.github.bernardodsanderson.vido.appdata.xml.in:35
+msgid "Update app category"
+msgstr ""
+
+#: data/com.github.bernardodsanderson.vido.appdata.xml.in:36
+msgid "Fix window getting too big due to error messages (thank you ryonakano)"
+msgstr ""
+
+#: data/com.github.bernardodsanderson.vido.appdata.xml.in:41
+msgid "Add Russian translation (thank you camellan)"
+msgstr ""
+
+#: data/com.github.bernardodsanderson.vido.appdata.xml.in:42
+msgid "Add French translation (thank you NathanBnm)"
+msgstr ""
+
+#: data/com.github.bernardodsanderson.vido.appdata.xml.in:43
+msgid ""
+"Make 'Get Video Info' button will be disabled if there's no url (thank you "
+"ryonakano)"
+msgstr ""
+
+#: data/com.github.bernardodsanderson.vido.appdata.xml.in:48
+msgid "Make App Translatable"
+msgstr ""
+
+#: data/com.github.bernardodsanderson.vido.appdata.xml.in:49
+msgid "Add License"
+msgstr ""
+
+#: data/com.github.bernardodsanderson.vido.appdata.xml.in:54
+msgid "Fix audio download issues"
+msgstr ""
+
+#: data/com.github.bernardodsanderson.vido.appdata.xml.in:68
+msgid "Normal Mode"
+msgstr "通常モード"
+
+#: data/com.github.bernardodsanderson.vido.appdata.xml.in:72
+msgid "Ready to Download"
+msgstr "ダウンロード準備完了"
+
+#: data/com.github.bernardodsanderson.vido.appdata.xml.in:76
+msgid "Bernardo Anderson"
+msgstr "Bernardo Anderson"
+
+#: data/com.github.bernardodsanderson.vido.desktop.in:4
+msgid "VIDO - Video Downloader"
+msgstr "VIDO - 動画ダウンロードアプリ"
+
+#: data/com.github.bernardodsanderson.vido.desktop.in:5
+msgid "Download Videos from the Internet"
+msgstr "インターネットから動画をダウンロードします"
+
+#: data/com.github.bernardodsanderson.vido.desktop.in:8
+msgid "com.github.bernardodsanderson.vido"
+msgstr "com.github.bernardodsanderson.vido"
+
+#: data/com.github.bernardodsanderson.vido.desktop.in:11
+msgid "Video;Download;Internet;"
+msgstr "Video;Download;Internet;動画;ビデオ;ダウンロード;インターネット;"
