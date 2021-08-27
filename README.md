@@ -21,10 +21,4 @@ youtube-dl
 ```
 To build locally:
 
-`meson build --prefix=/usr`
-
-`cd build`
-
-`ninja`
-
-`sudo ninja install`
+`flatpak-builder build  com.github.bernardodsanderson.vido.yml --user --install --force-clean`
