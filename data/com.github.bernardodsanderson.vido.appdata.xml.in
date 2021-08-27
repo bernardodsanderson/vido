@@ -76,4 +76,5 @@
   <developer_name>Bernardo Anderson</developer_name>
   <url type="homepage">http://github.com/bernardodsanderson/vido</url>
   <url type="bugtracker">https://github.com/bernardodsanderson/vido/issues</url>
+  <value key="x-appcenter-stripe">pk_live_STtcXII2pdHg9Yas7q6olWZl</value>
 </component>
