@@ -1,0 +1,46 @@
+# ITALIAN TRANSLATION FOR VIDO.
+# Copyright (C) YEAR THE extra'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the com.github.bernardodsanderson.vido package.
+# ALBANO BATTISTELLA <ALBANO_BATTISTELLA@HOTMAIL.COM>, 2021.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: extra\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-02-03 14:38+0900\n"
+"PO-Revision-Date: 2021-10-09 14:48+0100\n"
+"Last-Translator: Albano Battistella <Albano_battistella@hotmail.com>\n"
+"Language-Team: Italian <LL@li.org>\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: data/com.github.bernardodsanderson.vido.appdata.xml.in:7
+#: data/com.github.bernardodsanderson.vido.desktop.in:3
+msgid "VIDO"
+msgstr "VIDO"
+
+#: data/com.github.bernardodsanderson.vido.appdata.xml.in:8
+msgid "Online Video Downloader"
+msgstr "Downloader di video online"
+
+#: data/com.github.bernardodsanderson.vido.appdata.xml.in:10
+msgid ""
+"Download online videos from various sources including archive.org and much "
+"more!"
+msgstr ""
+"Scarica video online da varie fonti tra cui archive.org e molto "
+"di più!"
+
+#: data/com.github.bernardodsanderson.vido.appdata.xml.in:15
+msgid "Fix audio download issues"
+msgstr "Risolto i problemi di download dell'audio"
+
+#: data/com.github.bernardodsanderson.vido.appdata.xml.in:29
+msgid "Normal Mode"
+msgstr "Modalità Normale"
+
+#: data/com.github.bernardodsanderson.vido.appdata.xml.in:33
+msgid "Ready to Download"
+msgstr "Pronto per il download"
