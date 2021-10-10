@@ -7,7 +7,8 @@ Download online videos from various sources including archive.org and much more!
   <a href="https://appcenter.elementary.io/com.github.bernardodsanderson.vido"><img src="https://appcenter.elementary.io/badge.svg" alt="Get it on AppCenter" /></a>
 </p>
 
-![Screenshot](https://raw.githubusercontent.com/bernardodsanderson/vido/master/data/images/VIDO-normal.png)
+![vido](https://user-images.githubusercontent.com/5623786/136678627-ab7d7875-f721-4ef8-a086-6563d95aacb8.png)
+
 
 ## Dependencies
 
