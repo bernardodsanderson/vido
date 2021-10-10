@@ -7,7 +7,9 @@ finish-args:
   - '--share=ipc'
   - '--socket=fallback-x11'
   - '--socket=wayland'
+  # For downloading videos
   - '--share=network'
+  # For saving location
   - '--filesystem=home'
 modules:
   - name: vido
@@ -19,6 +21,7 @@ modules:
     buildsystem: simple
     build-options:
       build-args:
+        # For downloading youtube-dl itself
         - '--share=network'
     build-commands:
       - curl -vL https://yt-dl.org/downloads/latest/youtube-dl -o $FLATPAK_DEST/bin/youtube-dl
