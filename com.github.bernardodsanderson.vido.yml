@@ -10,7 +10,7 @@ finish-args:
   # For downloading videos
   - '--share=network'
   # For saving location
-  - '--filesystem=home'
+  - '--filesystem=xdg-download'
 modules:
   - name: vido
     buildsystem: meson
