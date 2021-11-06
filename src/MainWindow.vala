@@ -15,7 +15,7 @@
 * along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
-public class MainWindow : Gtk.ApplicationWindow {
+public class MainWindow : Hdy.Window {
     private string folder_location;
     private string video_info;
     private uint configure_id;
@@ -23,7 +23,6 @@ public class MainWindow : Gtk.ApplicationWindow {
     public MainWindow (Gtk.Application app) {
         Object (
             application: app,
-            border_width: 15,
             resizable: false
         );
     }
@@ -36,11 +35,13 @@ public class MainWindow : Gtk.ApplicationWindow {
                                                     css_provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
 
         // Header
-        var header = new Gtk.HeaderBar ();
-        header.show_close_button = true;
-        header.has_subtitle = false;
-        header.title = _("VIDO - Video Downloader");
-        set_titlebar (header);
+        var header = new Hdy.HeaderBar () {
+            show_close_button = true,
+            has_subtitle = false,
+            title = _("VIDO - Video Downloader")
+        };
+        header.get_style_context ().add_class (Granite.STYLE_CLASS_DEFAULT_DECORATION);
+        header.get_style_context ().add_class (Gtk.STYLE_CLASS_FLAT);
 
         // URL input
         var url_input = new Gtk.Entry ();
@@ -89,6 +90,7 @@ public class MainWindow : Gtk.ApplicationWindow {
         var grid = new Gtk.Grid ();
         grid.row_spacing = 6;
         grid.column_spacing = 6;
+        grid.border_width = 12;
         grid.attach (url_input, 0, 0, 7, 1);
         grid.attach (location_label, 0, 1, 1, 1);
         grid.attach (location_button, 1, 1, 1, 1);
@@ -97,7 +99,11 @@ public class MainWindow : Gtk.ApplicationWindow {
         grid.attach (info_button, 0, 2, 7, 1);
         grid.attach (video_label, 0, 3, 7, 1);
         grid.attach (download_button, 0, 4, 7, 1);
-        add (grid);
+
+        var main_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
+        main_box.add (header);
+        main_box.add (grid);
+        add (main_box);
 
         url_input.changed.connect (() => {
             if (url_input.text != "") {
