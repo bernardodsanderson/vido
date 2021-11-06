@@ -36,6 +36,17 @@ public class Application : Gtk.Application {
             return;
         }
 
+        var open_action = new SimpleAction ("open", null);
+        open_action.activate.connect (() => {
+            try {
+                File destination = File.new_for_path (Application.settings.get_string ("destination"));
+                AppInfo.launch_default_for_uri (destination.get_uri (), null);
+            } catch (Error e) {
+                warning (e.message);
+            }
+        });
+        add_action (open_action);
+
         int window_x, window_y;
         settings.get ("window-position", "(ii)", out window_x, out window_y);
 
