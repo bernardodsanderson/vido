@@ -15,11 +15,11 @@ Download online videos from various sources including archive.org and much more!
 Please make sure you have these dependencies first before building.
 
 ```
-glib-2.0
 granite
 gtk+-3.0
-youtube-dl
+libhandy-1
 ```
+
 To build locally:
 
-`flatpak-builder build  com.github.bernardodsanderson.vido.yml --user --install --force-clean`
+`flatpak-builder build com.github.bernardodsanderson.vido.yml --user --install --force-clean`

@@ -27,7 +27,8 @@ executable(
     dependencies: [
         dependency('glib-2.0'),
         dependency('gtk+-3.0'),
-        dependency('granite', version: '>= 0.5')
+        dependency('granite', version: '>= 6.0.0'),
+        dependency('libhandy-1')
     ],
     install: true
 )
