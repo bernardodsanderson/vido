@@ -63,7 +63,7 @@ public class MainWindow : Hdy.Window {
         location_label.halign = Gtk.Align.END;
         var location_button = new Gtk.FileChooserButton (_("Select Folder to Save"), Gtk.FileChooserAction.SELECT_FOLDER);
         location_button.halign = Gtk.Align.START;
-        location_button.set_filename (get_destination ());
+        location_button.set_current_folder (get_destination ());
 
         // Audio Only
         var audio_only = new Gtk.CheckButton.with_label (_("Audio Only"));
@@ -131,12 +131,11 @@ public class MainWindow : Hdy.Window {
         });
 
         location_button.file_set.connect (() => {
-            Application.settings.set_string ("destination", location_button.get_filename ());
+            folder_location = location_button.get_filename ();
+            Application.settings.set_string ("destination", folder_location);
 
-            if (folder_location != "") {
-                if (url_input.text != "") {
-                    download_button.sensitive = true;
-                }
+            if (url_input.text != "") {
+                download_button.sensitive = true;
             }
         });
 
@@ -301,10 +300,16 @@ public class MainWindow : Hdy.Window {
 
     private string get_destination () {
         string destination = Application.settings.get_string ("destination");
+        if (destination == "") {
+            destination = Environment.get_user_special_dir (UserDirectory.DOWNLOAD);
+            Application.settings.set_string ("destination", destination);
+        }
 
         if (destination != null) {
             DirUtils.create_with_parents (destination, 0775);
         }
+
+        folder_location = destination;
 
         return destination;
     }
