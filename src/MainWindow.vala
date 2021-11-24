@@ -105,6 +105,11 @@ public class MainWindow : Hdy.Window {
         main_box.add (grid);
         add (main_box);
 
+        var notification = new Notification (_("Download Completed!"));
+        notification.set_body (_("Click here to see in the destination folder"));
+        notification.set_icon (new ThemedIcon ("process-completed"));
+        notification.set_default_action ("app.open");
+
         url_input.changed.connect (() => {
             if (url_input.text != "") {
                 info_button.sensitive = true;
@@ -223,11 +228,7 @@ public class MainWindow : Hdy.Window {
         download_button.clicked.connect (() => {
             download_button.label = _("Downloading…");
             download_button.sensitive = false;
-            // var notification = new Notification (_("Hello World"));
-            // notification.set_body (_("This is my first notification!"));
-            // this.send_notification ("notify.app", notification);
-            // var image = new Gtk.Image.from_icon_name ("dialog-warning", Gtk.IconSize.DIALOG);
-            // notification.set_icon (image.gicon);
+
             string[] spawn_args;
             if (audio_only.active) { // --extract-audio
                 spawn_args = { "youtube-dl", "--no-warnings", "--extract-audio", url_input.text };
@@ -273,6 +274,7 @@ public class MainWindow : Hdy.Window {
                     if (status == 0) {
                         download_button.label = _("Finished!");
                         download_button.sensitive = true;
+                        application.send_notification ("com.github.bernardodsanderson.vido", notification);
                     } else {
                         download_button.label = _("Download");
 
