@@ -28,6 +28,8 @@ public class MainWindow : Hdy.Window {
     }
 
     construct {
+        Hdy.init ();
+
         // Add CSS file
         var css_provider = new Gtk.CssProvider ();
         css_provider.load_from_resource ("/com/github/bernardodsanderson/vido/style.css");
