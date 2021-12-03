@@ -23,7 +23,8 @@ public class MainWindow : Hdy.Window {
     public MainWindow (Gtk.Application app) {
         Object (
             application: app,
-            resizable: false
+            resizable: false,
+            title: "VIDO"
         );
     }
 
@@ -40,7 +41,7 @@ public class MainWindow : Hdy.Window {
         var header = new Hdy.HeaderBar () {
             show_close_button = true,
             has_subtitle = false,
-            title = _("VIDO - Video Downloader")
+            title = "VIDO"
         };
         header.get_style_context ().add_class (Granite.STYLE_CLASS_DEFAULT_DECORATION);
         header.get_style_context ().add_class (Gtk.STYLE_CLASS_FLAT);
