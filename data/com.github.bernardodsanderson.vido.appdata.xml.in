@@ -41,6 +41,12 @@
   </content_rating>
 
   ​<releases>
+    <release version="2.1.0" date="2021-12-11" urgency="low">
+      <description>
+        <p>General app improvements</p>
+        <p>Added Italian translation</p>
+      </description>
+    </release>
     <release version="2.0.0" date="2021-09-26" urgency="high">
       <description>
         <p>Updated for elementary OS 6</p>
