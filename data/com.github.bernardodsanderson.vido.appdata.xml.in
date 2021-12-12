@@ -41,7 +41,7 @@
   </content_rating>
 
   ​<releases>
-    <release version="2.2.0" date="2021-12-11" urgency="low">
+    <release version="2.3.0" date="2021-12-12" urgency="low">
       <description>
         <p>General app improvements</p>
         <p>Added Italian translation</p>
