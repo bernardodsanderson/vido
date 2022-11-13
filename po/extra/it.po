@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-03 14:38+0900\n"
+"POT-Creation-Date: 2022-11-13 22:41+0900\n"
 "PO-Revision-Date: 2021-10-09 14:48+0100\n"
 "Last-Translator: Albano Battistella <Albano_battistella@hotmail.com>\n"
 "Language-Team: Italian <LL@li.org>\n"
@@ -30,17 +30,108 @@ msgid ""
 "Download online videos from various sources including archive.org and much "
 "more!"
 msgstr ""
-"Scarica video online da varie fonti tra cui archive.org e molto "
-"di più!"
+"Scarica video online da varie fonti tra cui archive.org e molto di più!"
 
-#: data/com.github.bernardodsanderson.vido.appdata.xml.in:15
+#: data/com.github.bernardodsanderson.vido.appdata.xml.in:46
+msgid "General app improvements"
+msgstr ""
+
+#: data/com.github.bernardodsanderson.vido.appdata.xml.in:47
+msgid "Added Italian translation"
+msgstr ""
+
+#: data/com.github.bernardodsanderson.vido.appdata.xml.in:52
+msgid "Updated for elementary OS 6"
+msgstr ""
+
+#: data/com.github.bernardodsanderson.vido.appdata.xml.in:57
+msgid "Spanish Translation (thanks riesp)"
+msgstr ""
+
+#: data/com.github.bernardodsanderson.vido.appdata.xml.in:58
+msgid "Travis CI integration (thanks meisenzahl)"
+msgstr ""
+
+#: data/com.github.bernardodsanderson.vido.appdata.xml.in:63
+msgid "App refactoring (thanks ryonakano)"
+msgstr ""
+
+#: data/com.github.bernardodsanderson.vido.appdata.xml.in:68
+msgid "Translation Updates"
+msgstr ""
+
+#: data/com.github.bernardodsanderson.vido.appdata.xml.in:69
+msgid "Add Lithuanian translation (thanks welaq)"
+msgstr ""
+
+#: data/com.github.bernardodsanderson.vido.appdata.xml.in:70
+msgid "Fix sensitivity of download_button (thanks ryonakano)"
+msgstr ""
+
+#: data/com.github.bernardodsanderson.vido.appdata.xml.in:71
+msgid "Update French translation (thanks NathanBnm)"
+msgstr ""
+
+#: data/com.github.bernardodsanderson.vido.appdata.xml.in:72
+msgid "Remove unneeded files (thanks ryonakano)"
+msgstr ""
+
+#: data/com.github.bernardodsanderson.vido.appdata.xml.in:77
+msgid "Update app category"
+msgstr ""
+
+#: data/com.github.bernardodsanderson.vido.appdata.xml.in:78
+msgid "Fix window getting too big due to error messages (thank you ryonakano)"
+msgstr ""
+
+#: data/com.github.bernardodsanderson.vido.appdata.xml.in:83
+msgid "Add Russian translation (thank you camellan)"
+msgstr ""
+
+#: data/com.github.bernardodsanderson.vido.appdata.xml.in:84
+msgid "Add French translation (thank you NathanBnm)"
+msgstr ""
+
+#: data/com.github.bernardodsanderson.vido.appdata.xml.in:85
+msgid ""
+"Make 'Get Video Info' button will be disabled if there's no url (thank you "
+"ryonakano)"
+msgstr ""
+
+#: data/com.github.bernardodsanderson.vido.appdata.xml.in:90
+msgid "Make App Translatable"
+msgstr ""
+
+#: data/com.github.bernardodsanderson.vido.appdata.xml.in:91
+msgid "Add License"
+msgstr ""
+
+#: data/com.github.bernardodsanderson.vido.appdata.xml.in:96
 msgid "Fix audio download issues"
 msgstr "Risolto i problemi di download dell'audio"
 
-#: data/com.github.bernardodsanderson.vido.appdata.xml.in:29
+#: data/com.github.bernardodsanderson.vido.appdata.xml.in:111
 msgid "Normal Mode"
 msgstr "Modalità Normale"
 
-#: data/com.github.bernardodsanderson.vido.appdata.xml.in:33
+#: data/com.github.bernardodsanderson.vido.appdata.xml.in:115
 msgid "Ready to Download"
 msgstr "Pronto per il download"
+
+#: data/com.github.bernardodsanderson.vido.appdata.xml.in:119
+msgid "Bernardo Anderson"
+msgstr ""
+
+#: data/com.github.bernardodsanderson.vido.desktop.in:4
+#, fuzzy
+msgid "VIDO - Video Downloader"
+msgstr "Downloader di video online"
+
+#: data/com.github.bernardodsanderson.vido.desktop.in:5
+msgid "Download Videos from the Internet"
+msgstr ""
+
+#: data/com.github.bernardodsanderson.vido.desktop.in:11
+#, fuzzy
+msgid "Video;Download;Internet;"
+msgstr "Downloader di video online"
