@@ -1,6 +1,6 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE extra'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the com.github.bernardodsanderson.vido package.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the extra package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 #, fuzzy
@@ -8,13 +8,13 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-03 14:38+0900\n"
+"POT-Creation-Date: 2022-11-13 22:41+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 #: data/com.github.bernardodsanderson.vido.appdata.xml.in:7
@@ -32,19 +32,93 @@ msgid ""
 "more!"
 msgstr ""
 
-#: data/com.github.bernardodsanderson.vido.appdata.xml.in:15
+#: data/com.github.bernardodsanderson.vido.appdata.xml.in:46
+msgid "General app improvements"
+msgstr ""
+
+#: data/com.github.bernardodsanderson.vido.appdata.xml.in:47
+msgid "Added Italian translation"
+msgstr ""
+
+#: data/com.github.bernardodsanderson.vido.appdata.xml.in:52
+msgid "Updated for elementary OS 6"
+msgstr ""
+
+#: data/com.github.bernardodsanderson.vido.appdata.xml.in:57
+msgid "Spanish Translation (thanks riesp)"
+msgstr ""
+
+#: data/com.github.bernardodsanderson.vido.appdata.xml.in:58
+msgid "Travis CI integration (thanks meisenzahl)"
+msgstr ""
+
+#: data/com.github.bernardodsanderson.vido.appdata.xml.in:63
+msgid "App refactoring (thanks ryonakano)"
+msgstr ""
+
+#: data/com.github.bernardodsanderson.vido.appdata.xml.in:68
+msgid "Translation Updates"
+msgstr ""
+
+#: data/com.github.bernardodsanderson.vido.appdata.xml.in:69
+msgid "Add Lithuanian translation (thanks welaq)"
+msgstr ""
+
+#: data/com.github.bernardodsanderson.vido.appdata.xml.in:70
+msgid "Fix sensitivity of download_button (thanks ryonakano)"
+msgstr ""
+
+#: data/com.github.bernardodsanderson.vido.appdata.xml.in:71
+msgid "Update French translation (thanks NathanBnm)"
+msgstr ""
+
+#: data/com.github.bernardodsanderson.vido.appdata.xml.in:72
+msgid "Remove unneeded files (thanks ryonakano)"
+msgstr ""
+
+#: data/com.github.bernardodsanderson.vido.appdata.xml.in:77
+msgid "Update app category"
+msgstr ""
+
+#: data/com.github.bernardodsanderson.vido.appdata.xml.in:78
+msgid "Fix window getting too big due to error messages (thank you ryonakano)"
+msgstr ""
+
+#: data/com.github.bernardodsanderson.vido.appdata.xml.in:83
+msgid "Add Russian translation (thank you camellan)"
+msgstr ""
+
+#: data/com.github.bernardodsanderson.vido.appdata.xml.in:84
+msgid "Add French translation (thank you NathanBnm)"
+msgstr ""
+
+#: data/com.github.bernardodsanderson.vido.appdata.xml.in:85
+msgid ""
+"Make 'Get Video Info' button will be disabled if there's no url (thank you "
+"ryonakano)"
+msgstr ""
+
+#: data/com.github.bernardodsanderson.vido.appdata.xml.in:90
+msgid "Make App Translatable"
+msgstr ""
+
+#: data/com.github.bernardodsanderson.vido.appdata.xml.in:91
+msgid "Add License"
+msgstr ""
+
+#: data/com.github.bernardodsanderson.vido.appdata.xml.in:96
 msgid "Fix audio download issues"
 msgstr ""
 
-#: data/com.github.bernardodsanderson.vido.appdata.xml.in:29
+#: data/com.github.bernardodsanderson.vido.appdata.xml.in:111
 msgid "Normal Mode"
 msgstr ""
 
-#: data/com.github.bernardodsanderson.vido.appdata.xml.in:33
+#: data/com.github.bernardodsanderson.vido.appdata.xml.in:115
 msgid "Ready to Download"
 msgstr ""
 
-#: data/com.github.bernardodsanderson.vido.appdata.xml.in:37
+#: data/com.github.bernardodsanderson.vido.appdata.xml.in:119
 msgid "Bernardo Anderson"
 msgstr ""
 
@@ -54,10 +128,6 @@ msgstr ""
 
 #: data/com.github.bernardodsanderson.vido.desktop.in:5
 msgid "Download Videos from the Internet"
-msgstr ""
-
-#: data/com.github.bernardodsanderson.vido.desktop.in:8
-msgid "com.github.bernardodsanderson.vido"
 msgstr ""
 
 #: data/com.github.bernardodsanderson.vido.desktop.in:11
