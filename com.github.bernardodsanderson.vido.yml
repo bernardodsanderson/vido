@@ -1,6 +1,6 @@
 app-id: com.github.bernardodsanderson.vido
 runtime: io.elementary.Platform
-runtime-version: '6'
+runtime-version: '8'
 sdk: io.elementary.Sdk
 command: com.github.bernardodsanderson.vido
 finish-args:
@@ -17,13 +17,13 @@ modules:
     sources:
       - type: dir
         path: .
-  - name: youtube-dl
+  - name: yt-dlp
     buildsystem: simple
     build-options:
       build-args:
-        # For downloading youtube-dl itself
+        # For downloading yt-dlp itself
         - '--share=network'
     build-commands:
-      - curl -vL https://yt-dl.org/downloads/latest/youtube-dl -o $FLATPAK_DEST/bin/youtube-dl
-      - chmod a+rx $FLATPAK_DEST/bin/youtube-dl
-      - alias youtube-dl=\'$FLATPAK_DEST/bin/youtube-dl\'
+      - curl -vL https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -o $FLATPAK_DEST/bin/yt-dlp
+      - chmod a+rx $FLATPAK_DEST/bin/yt-dlp
+      - ln -s $FLATPAK_DEST/bin/yt-dlp $FLATPAK_DEST/bin/youtube-dl # Add symlink for compatibility
